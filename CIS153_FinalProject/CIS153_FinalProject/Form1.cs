@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace CIS153_FinalProject {
     // Brad Hanson
     // Ben Macleod
+
     public partial class Form1 : Form {
+
         public Form1() {
             InitializeComponent();
         }
