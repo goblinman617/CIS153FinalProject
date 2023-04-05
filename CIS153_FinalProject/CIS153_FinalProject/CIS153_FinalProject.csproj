@@ -46,24 +46,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Main_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Main_Menu.Designer.cs">
+      <DependentUpon>Main_Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TEST_FORM.cs">
+    <Compile Include="Forms\Single_Player.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TEST_FORM.Designer.cs">
+    <Compile Include="Forms\Single_Player.Designer.cs">
+      <DependentUpon>Single_Player.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Stats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Stats.Designer.cs">
+      <DependentUpon>Stats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TEST_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TEST_FORM.Designer.cs">
       <DependentUpon>TEST_FORM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Two_Player.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Two_Player.Designer.cs">
+      <DependentUpon>Two_Player.cs</DependentUpon>
+    </Compile>
     <Compile Include="Window.Controller.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Main_Menu.resx">
+      <DependentUpon>Main_Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,7 +92,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TEST_FORM.resx">
+    <EmbeddedResource Include="Forms\TEST_FORM.resx">
       <DependentUpon>TEST_FORM.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -89,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MatchHistory.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
