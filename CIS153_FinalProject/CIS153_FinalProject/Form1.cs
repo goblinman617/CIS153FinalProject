@@ -15,10 +15,18 @@ namespace CIS153_FinalProject
 
     public partial class Form1 : Form
     {
-        private Window windowController = new Window();
+        private Window windowController;
+        private Session sessionController;
+
         public Form1()
         {
             InitializeComponent();
+
+            // Init window controller.
+            windowController = new Window();
+
+            // Init session controller w/ window controller
+            sessionController = new Session(windowController);
 
             // Because this is the inital form we will set the
             // view to this.
