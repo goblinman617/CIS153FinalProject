@@ -13,10 +13,10 @@ namespace CIS153_FinalProject
     // Brad Hanson
     // Ben Macleod
 
-    public partial class Form1 : Form
+    public partial class Main_Menu : Form
     {
         private Window windowController = new Window();
-        public Form1()
+        public Main_Menu()
         {
             InitializeComponent();
 
