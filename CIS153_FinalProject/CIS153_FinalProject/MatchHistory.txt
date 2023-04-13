@@ -1,7 +1,3 @@
-﻿PlayerWins
-ComputerWins
-Draws
-
-We also need a total games and a win % but we will just calculate that when the player wants to see it.
-nothing else really needed in here.
-
+﻿54
+132
+52

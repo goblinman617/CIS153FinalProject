@@ -29,5 +29,9 @@ namespace CIS153_FinalProject
         {
             windowController.setView(new TEST_FORM());
         }
+
+        private void btn_open_stats_Click(object sender, EventArgs e) {
+            windowController.setView(new Stats());
+        }
     }
 }

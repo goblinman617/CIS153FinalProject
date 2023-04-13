@@ -79,9 +79,13 @@
     <Compile Include="Forms\Two_Player.Designer.cs">
       <DependentUpon>Two_Player.cs</DependentUpon>
     </Compile>
+    <Compile Include="MatchHistory.cs" />
     <Compile Include="Window.Controller.cs" />
     <EmbeddedResource Include="Forms\Main_Menu.resx">
       <DependentUpon>Main_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Stats.resx">
+      <DependentUpon>Stats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
