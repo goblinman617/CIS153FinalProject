@@ -1,4 +1,4 @@
-# CIS-153 Final_Project
-
-Brad Hanson
-Ben Macleod
+# CIS-153 Final Project
+## Authors
+- Brad Hanson
+- Ben Macleod

@@ -13,20 +13,12 @@ namespace CIS153_FinalProject
     // Brad Hanson
     // Ben Macleod
 
-    public partial class Form1 : Form
+    public partial class Main_Menu : Form
     {
-        private Window windowController;
-        private Session sessionController;
-
-        public Form1()
+        private Window windowController = new Window();
+        public Main_Menu()
         {
             InitializeComponent();
-
-            // Init window controller.
-            windowController = new Window();
-
-            // Init session controller w/ window controller
-            sessionController = new Session(windowController);
 
             // Because this is the inital form we will set the
             // view to this.
