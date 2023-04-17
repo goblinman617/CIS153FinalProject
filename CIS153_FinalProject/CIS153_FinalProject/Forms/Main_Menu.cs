@@ -33,5 +33,13 @@ namespace CIS153_FinalProject
         private void btn_open_stats_Click(object sender, EventArgs e) {
             windowController.setView(new Stats());
         }
+
+        private void btn_two_player_Click(object sender, EventArgs e) {
+            
+        }
+
+        private void btn_single_player_Click(object sender, EventArgs e) {
+
+        }
     }
 }

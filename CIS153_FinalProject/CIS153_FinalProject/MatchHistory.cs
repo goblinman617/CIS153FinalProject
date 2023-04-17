@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CIS153_FinalProject {
     internal class MatchHistory {
@@ -13,8 +14,6 @@ namespace CIS153_FinalProject {
         private double pWinPercent;
         private double aiWinPercent;
         private double drawPercent;
-
-
 
         // Getters
         public double getPlayerWins() { return playerWins; }

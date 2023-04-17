@@ -82,6 +82,7 @@
       <DependentUpon>Two_Player.cs</DependentUpon>
     </Compile>
     <Compile Include="MatchHistory.cs" />
+    <Compile Include="StatsController.cs" />
     <Compile Include="Window.Controller.cs" />
     <EmbeddedResource Include="Forms\Main_Menu.resx">
       <DependentUpon>Main_Menu.cs</DependentUpon>
