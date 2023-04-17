@@ -20,13 +20,16 @@ namespace CIS153_FinalProject
         //Primary add piece method
         public void addPiece(int x, int p) //from left starting at zero, 1 or 2 for playerNum
         {
+            cellState player; //cellState to be written
+
+            //set player cellstate from parameter p 
             if (p == 1)
             {
-                cells[x, 5].setState(cellState.p1);
+                player = cellState.p1;
             }
             else if (p == 2)
             {
-                cells[x, 5].setState(cellState.p2);
+                player = cellState.p2;
             }
             else
             {
@@ -35,9 +38,12 @@ namespace CIS153_FinalProject
             }
 
             //Gravity
-            for (int i = 5; cells[x, i-1].getState() != cellState.empty || i < 0; i++)
+            for (int i = 5; cells[x, i].getState() == cellState.empty || i > 1; i++) //start at top, do not run for bottom piece or if current cell is filled
             {
-                cells[x, i - 1].setState(cells[x, i].getState());
+                if (cells[x, i-1].getState() != cellState.empty) //if the cell below checked isn't empty
+                {
+                    cells[x, i].setState(player); //set player piece
+                }
             }
         }
 
