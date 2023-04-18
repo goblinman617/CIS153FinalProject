@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIS153_FinalProject.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,19 +28,24 @@ namespace CIS153_FinalProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            windowController.setView(new TEST_FORM());
         }
 
-        private void btn_open_stats_Click(object sender, EventArgs e) {
+        private void btn_open_stats_Click(object sender, EventArgs e)
+        {
             windowController.setView(new Stats());
         }
 
-        private void btn_two_player_Click(object sender, EventArgs e) {
-            
+        // Call when the user wants to player two players, and redirect to collect
+        // player information.
+        private void btn_two_player_Click(object sender, EventArgs e)
+        {
+            windowController.setView(new TwoPlayer(windowController));
         }
 
-        private void btn_single_player_Click(object sender, EventArgs e) {
-
+        // Called when the user wants to play a single player game.
+        private void btn_single_player_Click(object sender, EventArgs e)
+        {
+            windowController.setView(new GameBoard("single"));
         }
     }
 }

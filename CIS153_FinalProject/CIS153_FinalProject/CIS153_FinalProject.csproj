@@ -48,47 +48,45 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="Cell.cs" />
-    <Compile Include="Forms\Main_Menu.cs">
+    <Compile Include="Forms\MainMenu.View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main_Menu.Designer.cs">
-      <DependentUpon>Main_Menu.cs</DependentUpon>
+    <Compile Include="Forms\MainMenu.View.Designer.cs">
+      <DependentUpon>MainMenu.View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TwoPlayer.View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TwoPlayer.View.Designer.cs">
+      <DependentUpon>TwoPlayer.View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game.Controller.cs" />
+    <Compile Include="Forms\GameBoard.View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameBoard.View.Designer.cs">
+      <DependentUpon>GameBoard.View.cs</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\Single_Player.cs">
+    <Compile Include="Forms\Stats.View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Single_Player.Designer.cs">
-      <DependentUpon>Single_Player.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Stats.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Stats.Designer.cs">
-      <DependentUpon>Stats.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\TEST_FORM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\TEST_FORM.Designer.cs">
-      <DependentUpon>TEST_FORM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Two_Player.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Two_Player.Designer.cs">
-      <DependentUpon>Two_Player.cs</DependentUpon>
+    <Compile Include="Forms\Stats.View.Designer.cs">
+      <DependentUpon>Stats.View.cs</DependentUpon>
     </Compile>
     <Compile Include="MatchHistory.cs" />
     <Compile Include="StatsController.cs" />
     <Compile Include="Window.Controller.cs" />
-    <EmbeddedResource Include="Forms\Main_Menu.resx">
-      <DependentUpon>Main_Menu.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainMenu.View.resx">
+      <DependentUpon>MainMenu.View.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Stats.resx">
-      <DependentUpon>Stats.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Stats.View.resx">
+      <DependentUpon>Stats.View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TwoPlayer.View.resx">
+      <DependentUpon>TwoPlayer.View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,9 +97,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\TEST_FORM.resx">
-      <DependentUpon>TEST_FORM.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -13,7 +13,7 @@ namespace CIS153_FinalProject
      * window the same and consistent each time, we can also manage window closing
      * super easily.
     */
-    internal class Window
+    public class Window
     {
         // This represents the active window for the user.
         private Form _view;
@@ -52,6 +52,11 @@ namespace CIS153_FinalProject
         public Form getView()
         {
             return this._view;
+        }
+
+        public void goBack()
+        {
+            this.setView(this.previousView);
         }
 
         private void closeHandler(object sender, System.EventArgs e)
