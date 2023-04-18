@@ -22,7 +22,7 @@ namespace CIS153_FinalProject
         //Constructor
         public Cell()
         {
-            
+            this.state = cellState.empty;
         }
 
         //Getters

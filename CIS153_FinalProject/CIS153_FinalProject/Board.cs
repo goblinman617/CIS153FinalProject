@@ -7,41 +7,47 @@ using System.Threading.Tasks;
 namespace CIS153_FinalProject
 {
     class Board {
-        private Cell[,] cells = new Cell[6, 7];
 
+        private Cell[,] cells = new Cell[7, 6];
+        private bool player1Turn = true; //flips when piece is added
 
         //Constructor
         public Board() {
-            
+            for (int x = 0; x < 7; x++)
+            {
+                for (int y = 0; y < 6; y++)
+                {
+                    cells[x, y] = new Cell() ;
+                }
+            }
+
         }
     
 
         //Primary add piece method
-        public void addPiece(int x, int p) //from left starting at zero, 1 or 2 for playerNum
+        public void addPiece(int x) //from left starting at zero, 1 or 2 for playerNum
         {
             cellState player; //cellState to be written
 
             //set player cellstate from parameter p 
-            if (p == 1)
-            {
-                player = cellState.p1;
-            }
-            else if (p == 2)
-            {
-                player = cellState.p2;
-            }
-            else
-            {
-                Console.WriteLine("Board.addPiece: invalid player number");
-                return;
-            }
+            if (player1Turn) { player = cellState.p1; }
+            else { player = cellState.p2; }
+
             // A lot simpler way to do.
-            for (int i = 5; i >= 0; i--) {
-                if (cells[i, x].getState() == cellState.empty) {
-                    cells[i, x].setState(player);
-                    break;
+            if (cells[x, 0].getState() == cellState.empty)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (cells[x, i + 1].getState() != cellState.empty)
+                    {
+                        cells[x, i].setState(player);
+                        break;
+                    }
                 }
             }
+            
+
+            if (cells[x, 5].getState() == cellState.empty) { cells[x, 5].setState(player); } //if loop finds nothing existing
 
             ////Gravity
             //for (int i = 5; cells[x, i].getState() == cellState.empty || i > 1; i++) //start at top, do not run for bottom piece or if current cell is filled
@@ -51,10 +57,12 @@ namespace CIS153_FinalProject
             //        cells[x, i].setState(player); //set player piece
             //    }
             //}
+
+            player1Turn = !player1Turn;
         }
 
         public void consoleDisplay() {
-            for (int row = 0; row < 6; row++) {
+            for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 7; col++) {
                     if (cells[row, col].getState() == cellState.empty) {
                         Console.Write("E");
@@ -69,13 +77,13 @@ namespace CIS153_FinalProject
         }
 
         //Getters
-        public cellState getCell(int x, int y) //from top left starting at zero
+        public cellState getCell(int x, int y)
         {
             return cells[x, y].getState();
         }
 
         //setters
-        public void setCell(int x, int y, cellState c) //from top left starting at zero
+        public void setCell(int x, int y, cellState c)
         { cells[x, y].setState(c); }
     }
 }

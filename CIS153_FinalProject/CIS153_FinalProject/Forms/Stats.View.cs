@@ -41,7 +41,7 @@ namespace CIS153_FinalProject {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            if (testBoard.getCell(0,0) == cellState.empty) {
+            if (testBoard.getCell(0, 0) == cellState.empty) {
                 Console.WriteLine("true");
             }
         }

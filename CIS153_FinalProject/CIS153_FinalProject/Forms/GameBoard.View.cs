@@ -14,7 +14,7 @@ namespace CIS153_FinalProject
     {
         private Game gameSession = new Game();
         private Window windowController;
-        private Player[,] board = new Player[6, 7];
+        private Board board = new Board();
         private Player currentPlayersTurn = null;
 
         // Assign Player Varibles
@@ -52,14 +52,17 @@ namespace CIS153_FinalProject
                     btn.FlatStyle = FlatStyle.Flat;
                     btn.FlatAppearance.BorderSize = 0;
 
-                    if (board[row, col] == null)
+                    if (board.getCell(col, row) == cellState.empty) //cell empty
                     {
                         btn.BackColor = Color.LightGray;
                     }
-
-                    if (board[row, col] != null)
+                    else if (board.getCell(col, row) == cellState.p1) //cell p1
                     {
-                        btn.BackColor = Color.Firebrick;
+                        btn.BackColor = playerOne.getColor();
+                    }
+                    else //cell p2
+                    {
+                        btn.BackColor = playerTwo.getColor();
                     }
 
                     this.gameFlowBox.Controls.Add(btn);
@@ -103,22 +106,23 @@ namespace CIS153_FinalProject
         }
 
         // Find the next open spot in a column.
-        private void getNextSpotInColumn(int column, Player p)
+        /*private void getNextSpotInColumn(int column, Player p)
         {
             for (int r = 6; r > 0; r--)
             {
-                if (board[r - 1, column] == null)
+                if (board.getCell(column, r-1) != cellState.empty)
                 {
-                    board[r - 1, column] = p;
+                    //board[r - 1, column] = p;
                     return;
                 }
 
             }
-        }
+        }*/
 
         private void columnOneSelect_Click(object sender, EventArgs e)
         {
-            getNextSpotInColumn(0, this.currentPlayersTurn);
+            board.addPiece(0);
+            //getNextSpotInColumn(0, this.currentPlayersTurn);
             buildButtons();
         }
 
@@ -140,6 +144,48 @@ namespace CIS153_FinalProject
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_row_0_Click(object sender, EventArgs e)
+        {
+            board.addPiece(0);
+            buildButtons();
+        }
+
+        private void btn_row_1_Click(object sender, EventArgs e)
+        {
+            board.addPiece(1);
+            buildButtons();
+        }
+
+        private void btn_row_2_Click(object sender, EventArgs e)
+        {
+            board.addPiece(2);
+            buildButtons();
+        }
+
+        private void btn_row_3_Click(object sender, EventArgs e)
+        {
+            board.addPiece(3);
+            buildButtons();
+        }
+
+        private void btn_row_4_Click(object sender, EventArgs e)
+        {
+            board.addPiece(4);
+            buildButtons();
+        }
+
+        private void btn_row_5_Click(object sender, EventArgs e)
+        {
+            board.addPiece(5);
+            buildButtons();
+        }
+
+        private void btn_row_6_Click(object sender, EventArgs e)
+        {
+            board.addPiece(6);
+            buildButtons();
         }
     }
 }

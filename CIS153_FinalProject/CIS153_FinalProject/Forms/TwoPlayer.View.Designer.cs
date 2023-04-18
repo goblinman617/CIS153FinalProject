@@ -132,22 +132,28 @@
             // 
             // btn_color_p1
             // 
+            this.btn_color_p1.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_color_p1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_color_p1.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_color_p1.Location = new System.Drawing.Point(275, 84);
             this.btn_color_p1.Name = "btn_color_p1";
             this.btn_color_p1.Size = new System.Drawing.Size(198, 46);
             this.btn_color_p1.TabIndex = 8;
             this.btn_color_p1.Text = "Player #1 Color";
-            this.btn_color_p1.UseVisualStyleBackColor = true;
+            this.btn_color_p1.UseVisualStyleBackColor = false;
             this.btn_color_p1.Click += new System.EventHandler(this.btn_color_p1_Click);
             // 
             // btn_color_p2
             // 
+            this.btn_color_p2.BackColor = System.Drawing.Color.Orange;
+            this.btn_color_p2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_color_p2.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_color_p2.Location = new System.Drawing.Point(275, 157);
             this.btn_color_p2.Name = "btn_color_p2";
             this.btn_color_p2.Size = new System.Drawing.Size(198, 46);
             this.btn_color_p2.TabIndex = 9;
             this.btn_color_p2.Text = "Player #2 Color";
-            this.btn_color_p2.UseVisualStyleBackColor = true;
+            this.btn_color_p2.UseVisualStyleBackColor = false;
             this.btn_color_p2.Click += new System.EventHandler(this.btn_color_p2_Click);
             // 
             // TwoPlayer

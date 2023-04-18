@@ -22,6 +22,10 @@ namespace CIS153_FinalProject.Forms
         {
             InitializeComponent();
             windowController = value;
+
+            player1Color.Color = Color.Firebrick;
+            player2Color.Color = Color.Orange; //default color, add .backcolor to change, currently in design
+           
         }
 
 
@@ -35,6 +39,9 @@ namespace CIS153_FinalProject.Forms
             string _playerOneName = this.playerOneName.Text;
             string _playerTwoName = this.playerTwoName.Text;
 
+            Color playerOneColor = this.player1Color.Color;
+            Color playerTwoColor = this.player2Color.Color;
+
             // Make sure all names are there.
             if (string.IsNullOrEmpty(_playerOneName) || string.IsNullOrEmpty(_playerTwoName))
             {
@@ -47,8 +54,9 @@ namespace CIS153_FinalProject.Forms
             GameBoard gameBoard = new GameBoard("multi", windowController);
 
             // Set player one and two for the game.
-            gameBoard.setPlayerOne(new Player(_playerOneName));
-            gameBoard.setPlayerTwo(new Player(_playerTwoName));
+            gameBoard.setPlayerOne(new Player(_playerOneName, playerOneColor));
+            gameBoard.setPlayerTwo(new Player(_playerTwoName, playerTwoColor));
+
 
             // Prep game board before displaying to the user.
 
@@ -61,14 +69,15 @@ namespace CIS153_FinalProject.Forms
         private void btn_color_p2_Click(object sender, EventArgs e)
         {
             
-            player1Color.ShowDialog();
-            btn_color_p2.BackColor = player1Color.Color;
+            player2Color.ShowDialog();
+            btn_color_p2.BackColor = player2Color.Color;
         }
 
         private void btn_color_p1_Click(object sender, EventArgs e)
         {
-            player2Color.ShowDialog();
-            btn_color_p2.BackColor = player1Color.Color;
+            
+            player1Color.ShowDialog();
+            btn_color_p1.BackColor = player1Color.Color;
         }
     }
 }
