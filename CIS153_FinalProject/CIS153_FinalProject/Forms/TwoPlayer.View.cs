@@ -27,5 +27,24 @@ namespace CIS153_FinalProject.Forms
         {
             windowController.goBack();
         }
+
+        private void readyButton_Click(object sender, EventArgs e)
+        {
+            string _playerOneName = this.playerOneName.Text;
+            string _playerTwoName = this.playerTwoName.Text;
+
+            if (string.IsNullOrEmpty(_playerOneName) || string.IsNullOrEmpty(_playerTwoName))
+            {
+                this.errorLabel.Visible = true;
+                this.errorLabel.Text = "Whoa! We are missing a players name.";
+                return;
+            }
+
+            GameBoard gameBoard = new GameBoard("multi");
+
+            // Set players here.
+
+            windowController.setView(gameBoard);
+        }
     }
 }

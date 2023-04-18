@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.readyButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -92,12 +93,13 @@
             this.readyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.readyButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.readyButton.ForeColor = System.Drawing.Color.White;
-            this.readyButton.Location = new System.Drawing.Point(19, 242);
+            this.readyButton.Location = new System.Drawing.Point(19, 267);
             this.readyButton.Name = "readyButton";
             this.readyButton.Size = new System.Drawing.Size(493, 52);
             this.readyButton.TabIndex = 5;
             this.readyButton.Text = "Read to Begin?";
             this.readyButton.UseVisualStyleBackColor = false;
+            this.readyButton.Click += new System.EventHandler(this.readyButton_Click);
             // 
             // button1
             // 
@@ -106,7 +108,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(19, 300);
+            this.button1.Location = new System.Drawing.Point(19, 325);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(493, 29);
             this.button1.TabIndex = 6;
@@ -114,11 +116,24 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorLabel.Location = new System.Drawing.Point(16, 234);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(147, 17);
+            this.errorLabel.TabIndex = 7;
+            this.errorLabel.Text = "Error Label Placeholder";
+            this.errorLabel.Visible = false;
+            // 
             // TwoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 366);
+            this.ClientSize = new System.Drawing.Size(550, 382);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.readyButton);
             this.Controls.Add(this.playerTwoName);
@@ -142,5 +157,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button readyButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

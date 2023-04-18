@@ -79,6 +79,9 @@
     <Compile Include="MatchHistory.cs" />
     <Compile Include="StatsController.cs" />
     <Compile Include="Window.Controller.cs" />
+    <EmbeddedResource Include="Forms\GameBoard.View.resx">
+      <DependentUpon>GameBoard.View.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenu.View.resx">
       <DependentUpon>MainMenu.View.cs</DependentUpon>
     </EmbeddedResource>
