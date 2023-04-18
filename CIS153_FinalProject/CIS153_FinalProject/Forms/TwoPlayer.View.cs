@@ -14,12 +14,14 @@ namespace CIS153_FinalProject.Forms
     {
         private Window windowController;
 
+        ColorDialog player1Color = new ColorDialog();
+        ColorDialog player2Color = new ColorDialog();
+
         public TwoPlayer(Window value)
 
         {
             InitializeComponent();
             windowController = value;
-
         }
 
 
@@ -54,6 +56,19 @@ namespace CIS153_FinalProject.Forms
             // Set players here.
 
             windowController.setView(gameBoard);
+        }
+
+        private void btn_color_p2_Click(object sender, EventArgs e)
+        {
+            
+            player1Color.ShowDialog();
+            btn_color_p2.BackColor = player1Color.Color;
+        }
+
+        private void btn_color_p1_Click(object sender, EventArgs e)
+        {
+            player2Color.ShowDialog();
+            btn_color_p2.BackColor = player1Color.Color;
         }
     }
 }
