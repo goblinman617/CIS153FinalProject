@@ -36,6 +36,8 @@
             this.readyButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.btn_color_p1 = new System.Windows.Forms.Button();
+            this.btn_color_p2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +66,7 @@
             this.playerOneName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerOneName.Location = new System.Drawing.Point(19, 108);
             this.playerOneName.Name = "playerOneName";
-            this.playerOneName.Size = new System.Drawing.Size(493, 22);
+            this.playerOneName.Size = new System.Drawing.Size(250, 22);
             this.playerOneName.TabIndex = 2;
             // 
             // playerTwoName
@@ -73,7 +75,7 @@
             this.playerTwoName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerTwoName.Location = new System.Drawing.Point(19, 181);
             this.playerTwoName.Name = "playerTwoName";
-            this.playerTwoName.Size = new System.Drawing.Size(493, 22);
+            this.playerTwoName.Size = new System.Drawing.Size(250, 22);
             this.playerTwoName.TabIndex = 4;
             // 
             // label3
@@ -128,11 +130,33 @@
             this.errorLabel.Text = "Error Label Placeholder";
             this.errorLabel.Visible = false;
             // 
+            // btn_color_p1
+            // 
+            this.btn_color_p1.Location = new System.Drawing.Point(275, 84);
+            this.btn_color_p1.Name = "btn_color_p1";
+            this.btn_color_p1.Size = new System.Drawing.Size(198, 46);
+            this.btn_color_p1.TabIndex = 8;
+            this.btn_color_p1.Text = "Player #1 Color";
+            this.btn_color_p1.UseVisualStyleBackColor = true;
+            this.btn_color_p1.Click += new System.EventHandler(this.btn_color_p1_Click);
+            // 
+            // btn_color_p2
+            // 
+            this.btn_color_p2.Location = new System.Drawing.Point(275, 157);
+            this.btn_color_p2.Name = "btn_color_p2";
+            this.btn_color_p2.Size = new System.Drawing.Size(198, 46);
+            this.btn_color_p2.TabIndex = 9;
+            this.btn_color_p2.Text = "Player #2 Color";
+            this.btn_color_p2.UseVisualStyleBackColor = true;
+            this.btn_color_p2.Click += new System.EventHandler(this.btn_color_p2_Click);
+            // 
             // TwoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 382);
+            this.Controls.Add(this.btn_color_p2);
+            this.Controls.Add(this.btn_color_p1);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.readyButton);
@@ -158,5 +182,7 @@
         private System.Windows.Forms.Button readyButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button btn_color_p1;
+        private System.Windows.Forms.Button btn_color_p2;
     }
 }
