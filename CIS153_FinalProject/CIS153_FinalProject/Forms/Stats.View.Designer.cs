@@ -35,6 +35,7 @@
             this.txt_ai_win_p = new System.Windows.Forms.Label();
             this.txt_draw_p = new System.Windows.Forms.Label();
             this.btn_to_menu = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -157,11 +158,22 @@
             this.btn_to_menu.UseVisualStyleBackColor = true;
             this.btn_to_menu.Click += new System.EventHandler(this.btn_to_menu_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(650, 80);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Stats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_to_menu);
             this.Controls.Add(this.txt_draw_p);
             this.Controls.Add(this.txt_ai_win_p);
@@ -195,5 +207,6 @@
         private System.Windows.Forms.Label txt_ai_win_p;
         private System.Windows.Forms.Label txt_draw_p;
         private System.Windows.Forms.Button btn_to_menu;
+        private System.Windows.Forms.Button button1;
     }
 }

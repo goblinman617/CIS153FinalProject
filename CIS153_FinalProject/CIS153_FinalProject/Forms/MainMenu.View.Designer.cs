@@ -23,22 +23,11 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_open_stats = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_single_player = new System.Windows.Forms.Button();
             this.btn_two_player = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(725, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Test Window";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_open_stats
             // 
@@ -89,7 +78,6 @@
             this.Controls.Add(this.btn_single_player);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_open_stats);
-            this.Controls.Add(this.button1);
             this.Name = "Main_Menu";
             this.Text = "Connect 4";
             this.ResumeLayout(false);
@@ -98,8 +86,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_open_stats;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_single_player;

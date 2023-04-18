@@ -15,6 +15,7 @@ namespace CIS153_FinalProject {
         private MatchHistory info = new MatchHistory();
         private Window windowController = new Window();
         private StatsController statsController = new StatsController();
+        private Board testBoard = new Board();
         public Stats() {
             InitializeComponent();
             windowController.setView(this);
@@ -37,6 +38,12 @@ namespace CIS153_FinalProject {
 
         private void btn_to_menu_Click(object sender, EventArgs e) {
             windowController.setView(new Main_Menu());
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            if (testBoard.getCell(0,0) == cellState.empty) {
+                Console.WriteLine("true");
+            }
         }
     }
 }

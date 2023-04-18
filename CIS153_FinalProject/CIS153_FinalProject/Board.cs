@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace CIS153_FinalProject
 {
-    class Board
-    {
-        private Cell[,] cells = new Cell[7, 6];
-            
+    class Board {
+        private Cell[,] cells = new Cell[6, 7];
+
 
         //Constructor
-        public Board()
-        {
+        public Board() {
             
         }
+    
 
         //Primary add piece method
         public void addPiece(int x, int p) //from left starting at zero, 1 or 2 for playerNum
@@ -52,6 +51,21 @@ namespace CIS153_FinalProject
             //        cells[x, i].setState(player); //set player piece
             //    }
             //}
+        }
+
+        public void consoleDisplay() {
+            for (int row = 0; row < 6; row++) {
+                for (int col = 0; col < 7; col++) {
+                    if (cells[row, col].getState() == cellState.empty) {
+                        Console.Write("E");
+                    } else if (cells[row, col].getState() == cellState.p1) {
+                        Console.Write("p1");
+                    } else if (cells[row, col].getState() == cellState.p2) {
+                        Console.Write("p2");
+                    }
+                }
+                Console.Write("\n");
+            }
         }
 
         //Getters
