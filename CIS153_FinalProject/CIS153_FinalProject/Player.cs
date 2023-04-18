@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace CIS153_FinalProject
 {
-    internal class Player
+    public class Player
     {
         private string name;
 
         // Custom color for the checkers would be cool.
         private Color color = Color.Red;
+
+        public Player(string name)
+        {
+            this.name = name;
+        }
 
         /* Getters */
         public string getName()

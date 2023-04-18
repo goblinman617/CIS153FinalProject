@@ -14,12 +14,14 @@ namespace CIS153_FinalProject.Forms
     {
         private Window windowController;
 
+        ColorDialog player1Color = new ColorDialog();
+        ColorDialog player2Color = new ColorDialog();
+
         public TwoPlayer(Window value)
 
         {
             InitializeComponent();
             windowController = value;
-
         }
 
 
@@ -33,6 +35,7 @@ namespace CIS153_FinalProject.Forms
             string _playerOneName = this.playerOneName.Text;
             string _playerTwoName = this.playerTwoName.Text;
 
+            // Make sure all names are there.
             if (string.IsNullOrEmpty(_playerOneName) || string.IsNullOrEmpty(_playerTwoName))
             {
                 this.errorLabel.Visible = true;
@@ -40,11 +43,32 @@ namespace CIS153_FinalProject.Forms
                 return;
             }
 
-            GameBoard gameBoard = new GameBoard("multi");
+            // Generate new game session.
+            GameBoard gameBoard = new GameBoard("multi", windowController);
 
+            // Set player one and two for the game.
+            gameBoard.setPlayerOne(new Player(_playerOneName));
+            gameBoard.setPlayerTwo(new Player(_playerTwoName));
+
+            // Prep game board before displaying to the user.
+
+            gameBoard.init();
             // Set players here.
 
             windowController.setView(gameBoard);
+        }
+
+        private void btn_color_p2_Click(object sender, EventArgs e)
+        {
+            
+            player1Color.ShowDialog();
+            btn_color_p2.BackColor = player1Color.Color;
+        }
+
+        private void btn_color_p1_Click(object sender, EventArgs e)
+        {
+            player2Color.ShowDialog();
+            btn_color_p2.BackColor = player1Color.Color;
         }
     }
 }
