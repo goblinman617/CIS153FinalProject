@@ -13,14 +13,15 @@ using System.Windows.Forms;
 namespace CIS153_FinalProject {
     public partial class Stats : Form {
         private MatchHistory info = new MatchHistory();
+        private Window windowController = new Window();
         private StatsController statsController = new StatsController();
-        private Window windowController;
+        private Board testBoard = new Board();
         public Stats() {
             InitializeComponent();
-        }
-        public Stats(Window x) {
-            InitializeComponent();
-            windowController = x;
+            windowController.setView(this);
+            // We read text file everytime this window is created.
+            // If we start passing the same windowController THIS WILL NEED TO BE CHANGED SO THAT INFORMATION IS UPDATED SOME OTHER WAY
+
             statsController.readTextFile(info);
             updateDisplay(info);
         }
@@ -39,8 +40,10 @@ namespace CIS153_FinalProject {
             windowController.setView(new Main_Menu());
         }
 
-        private void button1_Click(object sender, EventArgs e) { //REMOVE THIS PLEASE FOR LOVE OF GOD
-
+        private void button1_Click(object sender, EventArgs e) {
+            if (testBoard.getCell(0, 0) == cellState.empty) {
+                Console.WriteLine("true");
+            }
         }
     }
 }
