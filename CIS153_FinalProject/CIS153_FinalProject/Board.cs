@@ -8,14 +8,14 @@ namespace CIS153_FinalProject
 {
     class Board {
 
-        private Cell[,] cells = new Cell[7, 6];
+        private Cell[,] cells = new Cell[6, 7];
         private bool player1Turn = true; //flips when piece is added
 
         //Constructor
         public Board() {
-            for (int x = 0; x < 7; x++)
+            for (int x = 0; x < 6; x++)
             {
-                for (int y = 0; y < 6; y++)
+                for (int y = 0; y < 7; y++)
                 {
                     cells[x, y] = new Cell() ;
                 }
@@ -25,7 +25,7 @@ namespace CIS153_FinalProject
     
 
         //Primary add piece method
-        public void addPiece(int x) //from left starting at zero, 1 or 2 for playerNum
+        public void addPiece(int x) // starting at 0 going to 6
         {
             cellState player; //cellState to be written
 
@@ -33,43 +33,26 @@ namespace CIS153_FinalProject
             if (player1Turn) { player = cellState.p1; }
             else { player = cellState.p2; }
 
-            // A lot simpler way to do.
-            if (cells[x, 0].getState() == cellState.empty)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    if (cells[x, i + 1].getState() != cellState.empty)
-                    {
-                        cells[x, i].setState(player);
-                        break;
-                    }
+
+            for (int row = 5; row >= 0; row--) {
+                if (cells[row, x].getState() == cellState.empty) {
+                    cells[row, x].setState(player);
+                    break;
                 }
             }
-            
-
-            if (cells[x, 5].getState() == cellState.empty) { cells[x, 5].setState(player); } //if loop finds nothing existing
-
-            ////Gravity
-            //for (int i = 5; cells[x, i].getState() == cellState.empty || i > 1; i++) //start at top, do not run for bottom piece or if current cell is filled
-            //{
-            //    if (cells[x, i-1].getState() != cellState.empty) //if the cell below checked isn't empty
-            //    {
-            //        cells[x, i].setState(player); //set player piece
-            //    }
-            //}
 
             player1Turn = !player1Turn;
         }
 
         public void consoleDisplay() {
-            for (int row = 0; row < 5; row++) {
+            for (int row = 0; row < 6; row++) {
                 for (int col = 0; col < 7; col++) {
                     if (cells[row, col].getState() == cellState.empty) {
-                        Console.Write("E");
-                    } else if (cells[row, col].getState() == cellState.p1) {
-                        Console.Write("p1");
-                    } else if (cells[row, col].getState() == cellState.p2) {
-                        Console.Write("p2");
+                        Console.Write("_");
+                    } else if (cells[row, col].getState() == cellState.p1) { //p1 = X
+                        Console.Write("X");
+                    } else if (cells[row, col].getState() == cellState.p2) { //p2 = O
+                        Console.Write("O");
                     }
                 }
                 Console.Write("\n");
