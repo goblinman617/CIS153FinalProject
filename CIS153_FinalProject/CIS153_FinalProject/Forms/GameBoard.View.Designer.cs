@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.turnLine = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.playerOneColor = new System.Windows.Forms.Button();
             this.playerOneLabel = new System.Windows.Forms.Label();
             this.playerTwoLabel = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.playerTwoColor = new System.Windows.Forms.Button();
             this.gameFlowBox = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btn_row_0 = new System.Windows.Forms.Button();
@@ -54,18 +54,18 @@
             this.turnLine.TabIndex = 0;
             this.turnLine.Text = "Ben, it\'s your turn!";
             // 
-            // button1
+            // playerOneColor
             // 
-            this.button1.BackColor = System.Drawing.Color.Firebrick;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.LightGray;
-            this.button1.Location = new System.Drawing.Point(9, 616);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 37);
-            this.button1.TabIndex = 50;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.playerOneColor.BackColor = System.Drawing.Color.Firebrick;
+            this.playerOneColor.FlatAppearance.BorderSize = 0;
+            this.playerOneColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playerOneColor.ForeColor = System.Drawing.Color.LightGray;
+            this.playerOneColor.Location = new System.Drawing.Point(9, 616);
+            this.playerOneColor.Name = "playerOneColor";
+            this.playerOneColor.Size = new System.Drawing.Size(38, 37);
+            this.playerOneColor.TabIndex = 50;
+            this.playerOneColor.UseVisualStyleBackColor = false;
+            this.playerOneColor.Click += new System.EventHandler(this.button1_Click);
             // 
             // playerOneLabel
             // 
@@ -89,18 +89,18 @@
             this.playerTwoLabel.Text = "Matt";
             this.playerTwoLabel.Click += new System.EventHandler(this.playerTwoLabel_Click);
             // 
-            // button2
+            // playerTwoColor
             // 
-            this.button2.BackColor = System.Drawing.Color.Orange;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.LightGray;
-            this.button2.Location = new System.Drawing.Point(194, 616);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(38, 37);
-            this.button2.TabIndex = 52;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.playerTwoColor.BackColor = System.Drawing.Color.Orange;
+            this.playerTwoColor.FlatAppearance.BorderSize = 0;
+            this.playerTwoColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playerTwoColor.ForeColor = System.Drawing.Color.LightGray;
+            this.playerTwoColor.Location = new System.Drawing.Point(194, 616);
+            this.playerTwoColor.Name = "playerTwoColor";
+            this.playerTwoColor.Size = new System.Drawing.Size(38, 37);
+            this.playerTwoColor.TabIndex = 52;
+            this.playerTwoColor.UseVisualStyleBackColor = false;
+            this.playerTwoColor.Click += new System.EventHandler(this.button2_Click);
             // 
             // gameFlowBox
             // 
@@ -242,9 +242,9 @@
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.gameFlowBox);
             this.Controls.Add(this.playerTwoLabel);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.playerTwoColor);
             this.Controls.Add(this.playerOneLabel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.playerOneColor);
             this.Controls.Add(this.turnLine);
             this.Name = "GameBoard";
             this.Text = "GameBoard";
@@ -256,10 +256,10 @@
         #endregion
 
         private System.Windows.Forms.Label turnLine;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button playerOneColor;
         private System.Windows.Forms.Label playerOneLabel;
         private System.Windows.Forms.Label playerTwoLabel;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button playerTwoColor;
         private System.Windows.Forms.FlowLayoutPanel gameFlowBox;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btn_row_0;

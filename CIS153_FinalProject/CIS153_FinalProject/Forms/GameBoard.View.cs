@@ -12,20 +12,28 @@ namespace CIS153_FinalProject
 {
     public partial class GameBoard : Form
     {
-        private Game gameSession = new Game();
+        // Window Controller initalized by the constructor.
+        //
         private Window windowController;
-        private Board board = new Board();
-        private Player currentPlayersTurn = null;
 
-        // Assign Player Varibles
-        Player playerOne;
-        Player playerTwo;
+        // Create a new board controller.
+        private Board board;
 
-        // Constructor without window controller.
+        // Keep track of active players.
+        private Player playerOne;
+        private Player playerTwo;
+
+        // Constructor with player mode and window controller.
         public GameBoard(string playerMode)
         {
             InitializeComponent();
-            Console.WriteLine(playerMode);
+
+            // Initalize window controller.
+            this.windowController = null;
+
+            board = new Board(this);
+
+            // Dynamically build the buttons to the UI.
             buildButtons();
         }
 
@@ -33,8 +41,13 @@ namespace CIS153_FinalProject
         public GameBoard(string playerMode, Window windowController)
         {
             InitializeComponent();
-            Console.WriteLine(playerMode);
+
+            // Initalize window controller.
             this.windowController = windowController;
+
+            board = new Board(this);
+
+            // Dynamically build the buttons to the UI.
             buildButtons();
         }
 
@@ -52,11 +65,11 @@ namespace CIS153_FinalProject
                     btn.FlatStyle = FlatStyle.Flat;
                     btn.FlatAppearance.BorderSize = 0;
 
-                    if (board.getCell(col, row) == cellState.empty) //cell empty
+                    if (true) //cell empty
                     {
                         btn.BackColor = Color.LightGray;
                     }
-                    else if (board.getCell(col, row) == cellState.p1) //cell p1
+                    else if (false) //cell p1
                     {
                         btn.BackColor = playerOne.getColor();
                     }
@@ -74,7 +87,10 @@ namespace CIS153_FinalProject
         public void init()
         {
             this.playerOneLabel.Text = playerOne.getName();
+            this.playerOneColor.BackColor = playerOne.getColor();
+
             this.playerTwoLabel.Text = playerTwo.getName();
+            this.playerTwoColor.BackColor = playerTwo.getColor();
 
             // Set player one as the current player.
             this.setPlayersTurn(playerOne);
@@ -83,7 +99,6 @@ namespace CIS153_FinalProject
         // Sets & Updates which player's turn it is.
         private void setPlayersTurn(Player player)
         {
-            this.currentPlayersTurn = player;
 
             this.turnLine.Text = player.getName() + ", it's your turn!";
         }

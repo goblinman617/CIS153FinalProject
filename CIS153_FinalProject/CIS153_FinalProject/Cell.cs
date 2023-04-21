@@ -16,23 +16,28 @@ namespace CIS153_FinalProject
 
     class Cell
     {
-        
-        private cellState state = cellState.empty;
+        // Store cell position on the board.
+        private int xPos;
+        private int yPos;
+
+        // Store a player, if selected.
+        private Player currentOwner = null;
 
         //Constructor
-        public Cell()
+        public Cell(int x, int y)
         {
-            this.state = cellState.empty;
+            xPos = x;
+            yPos = y;
         }
 
-        //Getters
-        public cellState getState()
-        { return state; }
+        // This function allows us to obtain the cell position, returns
+        // an int[] index 0 = X; 1 = Y
+        public int[] getPosition()
+        {
+            int[] posTable = { xPos, yPos };
+            return posTable;
 
-        //Setters 
-        public void setState(cellState s)
-        { state = s; }
-
+        }
     }
 }
 

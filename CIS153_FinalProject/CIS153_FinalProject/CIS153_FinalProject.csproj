@@ -46,14 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board.cs" />
+    <Compile Include="Board.Controller.cs" />
     <Compile Include="Cell.cs" />
-    <Compile Include="Forms\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MainMenu.View.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,9 +79,6 @@
     <Compile Include="MatchHistory.cs" />
     <Compile Include="StatsController.cs" />
     <Compile Include="Window.Controller.cs" />
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\GameBoard.View.resx">
       <DependentUpon>GameBoard.View.cs</DependentUpon>
     </EmbeddedResource>

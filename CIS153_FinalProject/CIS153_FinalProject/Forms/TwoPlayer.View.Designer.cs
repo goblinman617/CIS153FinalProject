@@ -133,6 +133,7 @@
             // btn_color_p1
             // 
             this.btn_color_p1.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_color_p1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_color_p1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_color_p1.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_color_p1.Location = new System.Drawing.Point(275, 84);
@@ -146,6 +147,7 @@
             // btn_color_p2
             // 
             this.btn_color_p2.BackColor = System.Drawing.Color.Orange;
+            this.btn_color_p2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_color_p2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_color_p2.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_color_p2.Location = new System.Drawing.Point(275, 157);
