@@ -70,15 +70,13 @@ namespace CIS153_FinalProject
             {
                 if (!cells[row, column].isTaken())
                 {
-                    swapTurns();
                     cells[row, column].setCellOwner(currentPlayer);
+                    swapTurns();
                     return cells[row, column];
                 }
 
 
             }
-
-            swapTurns();
 
             return null;
         }
@@ -118,5 +116,10 @@ namespace CIS153_FinalProject
         {
             return this.playerTwo;
         }
+
+        public Player getCurrentPlayer() {
+            return this.currentPlayer;
+        }
+        
     }
 }

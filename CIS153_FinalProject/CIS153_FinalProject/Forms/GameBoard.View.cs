@@ -49,6 +49,13 @@ namespace CIS153_FinalProject
 
             board.setGamemode(gameMode);
 
+            if (gameMode == "single") {
+                playerOne = new Player("Player", Color.Firebrick);
+                playerTwo = new Player("Computer", Color.Orange);
+                board.setPlayerOne(playerOne);
+                board.setPlayerTwo(playerTwo);
+                init();
+            }
         }
 
         // Anything that needs to be initliaze before the board is displayed.
@@ -61,7 +68,7 @@ namespace CIS153_FinalProject
             this.playerTwoColor.BackColor = this.board.getPlayerTwo().getColor();
 
             // Set player one as the current player.
-            this.setPlayersTurn(this.board.getPlayerTwo());
+            this.setPlayersTurn(this.board.getPlayerOne());
 
 
         }
@@ -105,9 +112,9 @@ namespace CIS153_FinalProject
             }
         }*/
 
-        private void columnOneSelect_Click(object sender, EventArgs e)
+        private void columnOneSelect_Click(object sender, EventArgs e) // Does this exist?
         {
-            board.addPiece(0);
+            //board.addPiece(0);
             //getNextSpotInColumn(0, this.currentPlayersTurn);
         }
 
@@ -134,37 +141,43 @@ namespace CIS153_FinalProject
         private void btn_row_0_Click(object sender, EventArgs e)
         {
             Console.WriteLine(board.setPlayerAsOwnerOfNextToken(0));
+            setPlayersTurn(this.board.getCurrentPlayer());
         }
 
         private void btn_row_1_Click(object sender, EventArgs e)
         {
-            board.addPiece(1);
+            board.setPlayerAsOwnerOfNextToken(1);
+            setPlayersTurn(this.board.getCurrentPlayer());
         }
 
         private void btn_row_2_Click(object sender, EventArgs e)
         {
-            board.addPiece(2);
+            board.setPlayerAsOwnerOfNextToken(2);
+            setPlayersTurn(this.board.getCurrentPlayer());
         }
 
         private void btn_row_3_Click(object sender, EventArgs e)
         {
-            board.addPiece(3);
-
+            board.setPlayerAsOwnerOfNextToken(3);
+            setPlayersTurn(this.board.getCurrentPlayer());
         }
 
         private void btn_row_4_Click(object sender, EventArgs e)
         {
-            board.addPiece(4);
+            board.setPlayerAsOwnerOfNextToken(4);
+            setPlayersTurn(this.board.getCurrentPlayer());
         }
 
         private void btn_row_5_Click(object sender, EventArgs e)
         {
-            board.addPiece(5);
+            board.setPlayerAsOwnerOfNextToken(5);
+            setPlayersTurn(this.board.getCurrentPlayer());
         }
 
         private void btn_row_6_Click(object sender, EventArgs e)
         {
-            board.addPiece(6);
+            board.setPlayerAsOwnerOfNextToken(6);
+            setPlayersTurn(this.board.getCurrentPlayer());
         }
     }
 }

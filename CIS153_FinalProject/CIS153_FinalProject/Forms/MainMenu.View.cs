@@ -45,7 +45,7 @@ namespace CIS153_FinalProject
         // Called when the user wants to play a single player game.
         private void btn_single_player_Click(object sender, EventArgs e)
         {
-            windowController.setView(new GameBoard("single"));
+            windowController.setView(new GameBoard("single", windowController));
         }
     }
 }
