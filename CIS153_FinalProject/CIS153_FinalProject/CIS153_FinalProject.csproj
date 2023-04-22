@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Board.Controller.cs" />
     <Compile Include="Cell.Controller.cs" />
+    <Compile Include="Forms\EndScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EndScreen.Designer.cs">
+      <DependentUpon>EndScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainMenu.View.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="MatchHistory.cs" />
     <Compile Include="StatsController.cs" />
     <Compile Include="Window.Controller.cs" />
+    <EmbeddedResource Include="Forms\EndScreen.resx">
+      <DependentUpon>EndScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\GameBoard.View.resx">
       <DependentUpon>GameBoard.View.cs</DependentUpon>
     </EmbeddedResource>
