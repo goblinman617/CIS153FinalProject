@@ -11,12 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CIS153_FinalProject {
-    public partial class Stats : Form {
+namespace CIS153_FinalProject
+{
+    public partial class Stats : Form
+    {
         private MatchHistory info = new MatchHistory();
         private Window windowController;
         private StatsController statsController = new StatsController();
-
         // Testing stuff DELETE AFTER
         //private 
         //=====================
@@ -29,7 +30,8 @@ namespace CIS153_FinalProject {
             statsController.readTextFile(info);
             updateDisplay(info);
         }
-        private void updateDisplay(MatchHistory info) {
+        private void updateDisplay(MatchHistory info)
+        {
             // Fill all the blank spots that need to be filled
             txt_total_games.Text = info.getTotalGames().ToString();
             txt_player_win_p.Text = Math.Round(info.getPWinPercent(), 2).ToString() + "%";
@@ -40,10 +42,10 @@ namespace CIS153_FinalProject {
             txt_ai_wins.Text = info.getAIWins().ToString();
         }
 
-        private void btn_to_menu_Click(object sender, EventArgs e) {
+        private void btn_to_menu_Click(object sender, EventArgs e)
+        {
             windowController.setView(new Main_Menu());
         }
-
         private void button1_Click(object sender, EventArgs e) {
             windowController.setView(new EndScreen(windowController, 1, "X"));
         }

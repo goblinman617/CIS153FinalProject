@@ -12,78 +12,63 @@ namespace CIS153_FinalProject
 {
     public partial class GameBoard : Form
     {
-        private Game gameSession = new Game();
+        // Window Controller initalized by the constructor.
+        //
         private Window windowController;
-        private Board board = new Board();
-        private Player currentPlayersTurn = null;
 
-        // Assign Player Varibles
-        Player playerOne;
-        Player playerTwo;
+        // Create a new board controller.
+        private Board board;
 
-        // Constructor without window controller.
-        public GameBoard(string playerMode)
+        // Keep track of active players.
+        private Player playerOne;
+        private Player playerTwo;
+
+        // Constructor with player mode and window controller.
+        public GameBoard(string gameMode)
         {
             InitializeComponent();
-            Console.WriteLine(playerMode);
-            buildButtons();
+
+            // Initalize window controller.
+            this.windowController = null;
+
+            board = new Board(this, this.gameFlowBox);
+
+            board.setGamemode(gameMode);
+
         }
 
         // Constructor with player mode and window controller.
-        public GameBoard(string playerMode, Window windowController)
+        public GameBoard(string gameMode, Window windowController)
         {
             InitializeComponent();
-            Console.WriteLine(playerMode);
+
+            // Initalize window controller.
             this.windowController = windowController;
-            buildButtons();
-        }
 
-        private void buildButtons()
-        {
-            this.gameFlowBox.Controls.Clear();
+            board = new Board(this, this.gameFlowBox);
 
-            for (int row = 0; row < 6; row++)
-            {
-                for (int col = 0; col < 7; col++)
-                {
-                    Button btn = new Button();
+            board.setGamemode(gameMode);
 
-                    btn.Size = new Size(75, 70);
-                    btn.FlatStyle = FlatStyle.Flat;
-                    btn.FlatAppearance.BorderSize = 0;
-
-                    if (board.getCell(col, row) == cellState.empty) //cell empty
-                    {
-                        btn.BackColor = Color.LightGray;
-                    }
-                    else if (board.getCell(col, row) == cellState.p1) //cell p1
-                    {
-                        btn.BackColor = playerOne.getColor();
-                    }
-                    else //cell p2
-                    {
-                        btn.BackColor = playerTwo.getColor();
-                    }
-
-                    this.gameFlowBox.Controls.Add(btn);
-                }
-            }
         }
 
         // Anything that needs to be initliaze before the board is displayed.
         public void init()
         {
-            this.playerOneLabel.Text = playerOne.getName();
-            this.playerTwoLabel.Text = playerTwo.getName();
+            this.playerOneLabel.Text = this.board.getPlayerOne().getName();
+            this.playerOneColor.BackColor = this.board.getPlayerOne().getColor();
+
+            this.playerTwoLabel.Text = this.board.getPlayerTwo().getName();
+            this.playerTwoColor.BackColor = this.board.getPlayerTwo().getColor();
 
             // Set player one as the current player.
-            this.setPlayersTurn(playerOne);
+            this.setPlayersTurn(this.board.getPlayerTwo());
+
+
         }
 
         // Sets & Updates which player's turn it is.
-        private void setPlayersTurn(Player player)
+        public void setPlayersTurn(Player player)
         {
-            this.currentPlayersTurn = player;
 
             this.turnLine.Text = player.getName() + ", it's your turn!";
         }
@@ -91,12 +76,13 @@ namespace CIS153_FinalProject
         // Player one & two getters
         public void setPlayerOne(Player value)
         {
-            this.playerOne = value;
+
+            this.board.setPlayerOne(value);
         }
 
         public void setPlayerTwo(Player value)
         {
-            this.playerTwo = value;
+            this.board.setPlayerTwo(value);
         }
 
         // Back button
@@ -123,7 +109,6 @@ namespace CIS153_FinalProject
         {
             board.addPiece(0);
             //getNextSpotInColumn(0, this.currentPlayersTurn);
-            buildButtons();
         }
 
         private void playerTwoLabel_Click(object sender, EventArgs e)
@@ -148,44 +133,38 @@ namespace CIS153_FinalProject
 
         private void btn_row_0_Click(object sender, EventArgs e)
         {
-            board.addPiece(0);
-            buildButtons();
+            Console.WriteLine(board.setPlayerAsOwnerOfNextToken(0));
         }
 
         private void btn_row_1_Click(object sender, EventArgs e)
         {
             board.addPiece(1);
-            buildButtons();
         }
 
         private void btn_row_2_Click(object sender, EventArgs e)
         {
             board.addPiece(2);
-            buildButtons();
         }
 
         private void btn_row_3_Click(object sender, EventArgs e)
         {
             board.addPiece(3);
-            buildButtons();
+
         }
 
         private void btn_row_4_Click(object sender, EventArgs e)
         {
             board.addPiece(4);
-            buildButtons();
         }
 
         private void btn_row_5_Click(object sender, EventArgs e)
         {
             board.addPiece(5);
-            buildButtons();
         }
 
         private void btn_row_6_Click(object sender, EventArgs e)
         {
             board.addPiece(6);
-            buildButtons();
         }
     }
 }
