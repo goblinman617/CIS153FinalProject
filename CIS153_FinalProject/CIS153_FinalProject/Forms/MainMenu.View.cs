@@ -32,7 +32,7 @@ namespace CIS153_FinalProject
 
         private void btn_open_stats_Click(object sender, EventArgs e)
         {
-            windowController.setView(new Stats());
+            windowController.setView(new Stats(windowController));
         }
 
         // Call when the user wants to player two players, and redirect to collect
