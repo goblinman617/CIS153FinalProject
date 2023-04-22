@@ -24,80 +24,50 @@ namespace CIS153_FinalProject
         private Player playerTwo;
 
         // Constructor with player mode and window controller.
-        public GameBoard(string playerMode)
+        public GameBoard(string gameMode)
         {
             InitializeComponent();
 
             // Initalize window controller.
             this.windowController = null;
 
-            board = new Board(this);
+            board = new Board(this, this.gameFlowBox);
 
-            // Dynamically build the buttons to the UI.
-            buildButtons();
+            board.setGamemode(gameMode);
+
         }
 
         // Constructor with player mode and window controller.
-        public GameBoard(string playerMode, Window windowController)
+        public GameBoard(string gameMode, Window windowController)
         {
             InitializeComponent();
 
             // Initalize window controller.
             this.windowController = windowController;
 
-            board = new Board(this);
+            board = new Board(this, this.gameFlowBox);
 
-            // Dynamically build the buttons to the UI.
-            buildButtons();
-        }
+            board.setGamemode(gameMode);
 
-        private void buildButtons()
-        {
-            this.gameFlowBox.Controls.Clear();
-
-            for (int row = 0; row < 6; row++)
-            {
-                for (int col = 0; col < 7; col++)
-                {
-                    Button btn = new Button();
-
-                    btn.Size = new Size(75, 70);
-                    btn.FlatStyle = FlatStyle.Flat;
-                    btn.FlatAppearance.BorderSize = 0;
-
-                    if (true) //cell empty
-                    {
-                        btn.BackColor = Color.LightGray;
-                    }
-                    else if (false) //cell p1
-                    {
-                        btn.BackColor = playerOne.getColor();
-                    }
-                    else //cell p2
-                    {
-                        btn.BackColor = playerTwo.getColor();
-                    }
-
-                    this.gameFlowBox.Controls.Add(btn);
-                }
-            }
         }
 
         // Anything that needs to be initliaze before the board is displayed.
         public void init()
         {
-            this.playerOneLabel.Text = playerOne.getName();
-            this.playerOneColor.BackColor = playerOne.getColor();
+            this.playerOneLabel.Text = this.board.getPlayerOne().getName();
+            this.playerOneColor.BackColor = this.board.getPlayerOne().getColor();
 
-            this.playerTwoLabel.Text = playerTwo.getName();
-            this.playerTwoColor.BackColor = playerTwo.getColor();
+            this.playerTwoLabel.Text = this.board.getPlayerTwo().getName();
+            this.playerTwoColor.BackColor = this.board.getPlayerTwo().getColor();
 
             // Set player one as the current player.
-            this.setPlayersTurn(playerOne);
+            this.setPlayersTurn(this.board.getPlayerTwo());
+
+
         }
 
         // Sets & Updates which player's turn it is.
-        private void setPlayersTurn(Player player)
+        public void setPlayersTurn(Player player)
         {
 
             this.turnLine.Text = player.getName() + ", it's your turn!";
@@ -106,12 +76,13 @@ namespace CIS153_FinalProject
         // Player one & two getters
         public void setPlayerOne(Player value)
         {
-            this.playerOne = value;
+
+            this.board.setPlayerOne(value);
         }
 
         public void setPlayerTwo(Player value)
         {
-            this.playerTwo = value;
+            this.board.setPlayerTwo(value);
         }
 
         // Back button
@@ -138,7 +109,6 @@ namespace CIS153_FinalProject
         {
             board.addPiece(0);
             //getNextSpotInColumn(0, this.currentPlayersTurn);
-            buildButtons();
         }
 
         private void playerTwoLabel_Click(object sender, EventArgs e)
@@ -163,44 +133,38 @@ namespace CIS153_FinalProject
 
         private void btn_row_0_Click(object sender, EventArgs e)
         {
-            board.addPiece(0);
-            buildButtons();
+            Console.WriteLine(board.setPlayerAsOwnerOfNextToken(0));
         }
 
         private void btn_row_1_Click(object sender, EventArgs e)
         {
             board.addPiece(1);
-            buildButtons();
         }
 
         private void btn_row_2_Click(object sender, EventArgs e)
         {
             board.addPiece(2);
-            buildButtons();
         }
 
         private void btn_row_3_Click(object sender, EventArgs e)
         {
             board.addPiece(3);
-            buildButtons();
+
         }
 
         private void btn_row_4_Click(object sender, EventArgs e)
         {
             board.addPiece(4);
-            buildButtons();
         }
 
         private void btn_row_5_Click(object sender, EventArgs e)
         {
             board.addPiece(5);
-            buildButtons();
         }
 
         private void btn_row_6_Click(object sender, EventArgs e)
         {
             board.addPiece(6);
-            buildButtons();
         }
     }
 }

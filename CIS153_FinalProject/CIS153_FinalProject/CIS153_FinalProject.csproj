@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.Controller.cs" />
-    <Compile Include="Cell.cs" />
+    <Compile Include="Cell.Controller.cs" />
     <Compile Include="Forms\MainMenu.View.cs">
       <SubType>Form</SubType>
     </Compile>

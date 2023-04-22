@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CIS153_FinalProject
 {
@@ -23,56 +24,99 @@ namespace CIS153_FinalProject
         private String gamemode = null;
 
 
-        private Cell[,] cells = new Cell[7, 6];
-        private bool player1Turn = true; //flips when piece is added
+        private Cell[,] cells = new Cell[6, 7];
 
         //Constructor
         public Board()
         {
-            this.init();
+            this.init(null);
         }
 
-        public Board(GameBoard gameView)
+        public Board(GameBoard gameView, FlowLayoutPanel flow)
         {
             this.view = gameView;
-            this.init();
-
-
+            this.init(flow);
         }
 
-        private void init()
+        // Build the token ui.
+        private void init(FlowLayoutPanel flow)
         {
-            for (int x = 0; x < 7; x++)
+
+            // For each row in the array
+            for (int row = 0; row < 6; row++)
             {
-                for (int y = 0; y < 6; y++)
+                // We will loop 7 times and make a new cell.
+                for (int column = 0; column < 7; column++)
                 {
-                    cells[x, y] = new Cell(x, y);
-                    Console.Write("X");
+                    // Create new cell class.
+                    cells[row, column] = new Cell(row, column);
+
+                    // Was able to give control over the view comp
+                    // via the cell class.
+                    cells[row, column].initView(flow);
                 }
-                Console.WriteLine("");
             }
+
+            currentPlayer = playerOne;
         }
 
-
-        //Primary add piece method
-        public void addPiece(int x) //from left starting at zero, 1 or 2 for playerNum
+        // Find the next open token in the column and set the player as the owner.
+        public Cell setPlayerAsOwnerOfNextToken(int column)
         {
+            if (currentPlayer == null) { currentPlayer = playerOne; }
 
+            // For each row in the array
+            for (int row = 5; row >= 0; row--)
+            {
+                if (!cells[row, column].isTaken())
+                {
+                    swapTurns();
+                    cells[row, column].setCellOwner(currentPlayer);
+                    return cells[row, column];
+                }
+
+
+            }
+
+            swapTurns();
+
+            return null;
         }
 
-        public void consoleDisplay()
+        // Swap players turn.
+        public void swapTurns()
         {
-
+            if (currentPlayer == playerOne) currentPlayer = playerTwo;
+            else currentPlayer = playerOne;
         }
 
-        //Getters
-        public void getCell(int x, int y)
+
+        /* Getters  Setters */
+
+        public void setGamemode(String mode)
         {
-
+            this.gamemode = mode;
         }
 
-        //setters
-        public void setCell(int x, int y, cellState c)
-        { }
+        // Set the players for the board.
+        public void setPlayerOne(Player value)
+        {
+            this.playerOne = value;
+        }
+
+        public void setPlayerTwo(Player value)
+        {
+            this.playerTwo = value;
+        }
+
+        public Player getPlayerOne()
+        {
+            return this.playerOne;
+        }
+
+        public Player getPlayerTwo()
+        {
+            return this.playerTwo;
+        }
     }
 }
