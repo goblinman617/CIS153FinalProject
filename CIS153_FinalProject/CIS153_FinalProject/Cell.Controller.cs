@@ -35,6 +35,7 @@ namespace CIS153_FinalProject
             yPos = y;
         }
 
+        // Initalize the UI components for cell.
         public void initView(FlowLayoutPanel flow)
         {
             viewButton = new Button();
@@ -54,6 +55,8 @@ namespace CIS153_FinalProject
                 viewButton.BackColor = currentOwner.getColor();
             }
 
+            viewButton.Text = xPos + ":::" + yPos;
+
             flow.Controls.Add(viewButton);
 
         }
@@ -67,11 +70,17 @@ namespace CIS153_FinalProject
 
         }
 
+        // Set player as the cell owner & update color.
         public void setCellOwner(Player owner)
         {
             this.currentOwner = owner;
             viewButton.BackColor = owner.getColor();
 
+        }
+
+        public Player getOwner()
+        {
+            return currentOwner;
         }
 
         public Boolean isTaken()
