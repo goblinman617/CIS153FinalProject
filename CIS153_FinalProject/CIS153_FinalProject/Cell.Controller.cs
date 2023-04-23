@@ -26,9 +26,6 @@ namespace CIS153_FinalProject
         // Store a player, if selected.
         private Player currentOwner = null;
 
-        //abbreviated cellState
-        private cellState state = cellState.empty;
-
         // The button we dynamically generate for this cell.
         private Button viewButton;
 
@@ -39,6 +36,7 @@ namespace CIS153_FinalProject
             yPos = y;
         }
 
+        // Initalize the UI components for cell.
         public void initView(FlowLayoutPanel flow)
         {
             viewButton = new Button();
@@ -64,6 +62,9 @@ namespace CIS153_FinalProject
             //viewButton.mouseEnter += new EventHandler(startHover);
             //viewButton.mouseLeave += new EventHandler(stopHover);
             //need to make these run stuff in gameboard view, painful un wiring
+            viewButton.Text = xPos + ":::" + yPos;
+
+            flow.Controls.Add(viewButton);
 
         }
 
@@ -85,6 +86,7 @@ namespace CIS153_FinalProject
 
         }
 
+        // Set player as the cell owner & update color.
         public void setCellOwner(Player owner)
         {
             this.currentOwner = owner;

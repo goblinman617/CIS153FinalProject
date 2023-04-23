@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace CIS153_FinalProject
 {
@@ -25,6 +29,9 @@ namespace CIS153_FinalProject
 
         // Last placed cell
         private Cell last = null;
+
+        // Varible for the computer player.
+        Computer computer;
 
         //winner
         private Player winner = null;
@@ -62,6 +69,9 @@ namespace CIS153_FinalProject
                     cells[row, column].initView(flow);
                 }
             }
+
+            currentPlayer = playerOne;
+            currentPlayer = playerOne;
         }
 
         // Find the next open token in the column and set the player as the owner.
@@ -72,8 +82,25 @@ namespace CIS153_FinalProject
             // For each row in the array
             for (int row = 5; row >= 0; row--)
             {
-                if (!cells[row, column].isTaken())
-                {
+
+                    // Set the cell owner to the current player.
+                    cells[row, column].setCellOwner(currentPlayer);
+
+                    // Check for win
+                    if (currentPlayer != null && checkWin() != null)
+                    {
+                        Console.WriteLine("Winner!!!!", currentPlayer.getColor());
+                    }
+
+                    // Playing in singleplayer mode.
+                    if (gamemode == "single")
+                    {
+                        // Tell the computer what the players last move was.
+                        computer.SetOpponetPreviousMove(cells[row, column]);
+                    }
+
+                    // Swap players.
+                    swapTurns();
                     cells[row, column].setCellOwner(currentPlayer);
                     last = cells[row, column];
 
@@ -86,11 +113,13 @@ namespace CIS153_FinalProject
                     }
 
                     swapTurns();             // Swap players.
+                    swapTurns();             // Swap players.
+                    cells[row, column].setCellOwner(currentPlayer);
                     return cells[row, column];
-                }
-
-
             }
+
+
+            
 
             return null;
         }
@@ -138,15 +167,41 @@ namespace CIS153_FinalProject
 
         public void setGamemode(String mode)
         {
-            this.gamemode = mode;
+            // Singleplayer mode is selected, set up single player.
+            if (mode == "single")
+            {
+                // Create a new computer instance.
+                computer = new Computer("Computer", Color.Orange);
+
+                // Set players for the single player game.
+                playerTwo = computer;
+                playerOne = new Player("You", Color.Firebrick);
+            }
         }
-        public string getGamemode() {
-            return gamemode;
+
+        public Cell[,] getCells()
+        {
+            return this.cells;
         }
+
+        public Computer GetComputer()
+        {
+            return computer;
+        }
+
+        public string GetGamemode()
+        { return gamemode; }
+        
         public Player getWinner()
         {
             return winner;
         }
+
+            
+        }
+
+        }
+
         // Set the players for the board.
         public void setPlayerOne(Player value)
         {
@@ -166,8 +221,6 @@ namespace CIS153_FinalProject
 
         public Player getPlayerTwo()
         {
-            return this.playerTwo;
-        }
         public Player getCurrentPlayer()
         {
             return this.currentPlayer;
@@ -574,6 +627,8 @@ namespace CIS153_FinalProject
 
     }
 }
+
+
 
 
 
