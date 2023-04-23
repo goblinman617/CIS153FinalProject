@@ -25,8 +25,8 @@ namespace CIS153_FinalProject
         // while setting the location new veiw and setting it to the new one.
         public void setView(Form view)
         {
-            view.StartPosition = FormStartPosition.Manual;
-            view.Location = new Point(100, 100);
+            view.StartPosition = FormStartPosition.CenterScreen;
+            //view.Location = new Point(100, 100);
 
             // ?? Why can't i do =
             view.FormClosed += closeHandler;

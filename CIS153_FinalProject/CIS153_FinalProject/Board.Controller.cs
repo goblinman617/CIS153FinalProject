@@ -62,15 +62,12 @@ namespace CIS153_FinalProject
                     cells[row, column].initView(flow);
                 }
             }
-
-            currentPlayer = playerOne;
         }
-
 
         // Find the next open token in the column and set the player as the owner.
         public Cell setPlayerAsOwnerOfNextToken(int column)
         {
-            if (currentPlayer == null) { currentPlayer = playerOne; }
+            //if (currentPlayer == null) { currentPlayer = playerOne; }
 
             // For each row in the array
             for (int row = 5; row >= 0; row--)
@@ -88,7 +85,7 @@ namespace CIS153_FinalProject
                         Console.WriteLine(winner.getName());
                     }
 
-                    swapTurns();
+                    swapTurns();             // Swap players.
                     return cells[row, column];
                 }
 
@@ -101,10 +98,41 @@ namespace CIS153_FinalProject
         // Swap players turn.
         public void swapTurns()
         {
-            if (currentPlayer == playerOne) currentPlayer = playerTwo;
-            else currentPlayer = playerOne;
+            if (currentPlayer == playerOne)
+            {
+                currentPlayer = playerTwo;
+            }
+            else
+            {
+                currentPlayer = playerOne;
+            }
         }
 
+        //start hover
+        public void startHover (int col)
+        {
+            for (int row = 5; row >= 0; row--)
+            {
+                if (!cells[row, col].isTaken())
+                {
+                    cells[row, col].startHover(currentPlayer);
+                    row = -1; //stop looping
+                }
+            }
+        }
+
+        //stop hover
+        public void stopHover(int col)
+        {
+            for (int row = 5; row >= 0; row--)
+            {
+                if (!cells[row, col].isTaken())
+                {
+                    cells[row, col].stopHover();
+                    row = -1; //stop looping
+                }
+            }
+        }
 
         /* Getters  Setters */
 
@@ -115,13 +143,15 @@ namespace CIS153_FinalProject
         public string getGamemode() {
             return gamemode;
         }
-        public Player getWinner() {
+        public Player getWinner()
+        {
             return winner;
         }
         // Set the players for the board.
         public void setPlayerOne(Player value)
         {
             this.playerOne = value;
+            currentPlayer = playerOne;
         }
 
         public void setPlayerTwo(Player value)
@@ -138,10 +168,40 @@ namespace CIS153_FinalProject
         {
             return this.playerTwo;
         }
-
         public Player getCurrentPlayer()
         {
             return this.currentPlayer;
+        }
+
+        public Cell[,] getCells()
+        {
+            return this.cells;
+        }
+
+        public int[,] getSimpleCells() //1 is player 1, 2 is player 2, 0 is empty
+        {
+            int[,] sCells = new int[6, 7];
+
+            for (int x = 0; x < 7; x++)
+            {
+                for (int y = 0; y < 6; y++)
+                {
+                    if (cells[y, x].getOwner() == playerOne)
+                    {
+                        sCells[y, x] = 1;
+                    }
+                    else if (cells[y, x].getOwner() == playerTwo)
+                    {
+                        sCells[y, x] = 2;
+                    }
+                    else
+                    {
+                        sCells[y, x] = 0;
+                    }
+                }
+            }
+
+            return sCells;
         }
         /*
         public Player hasWin_v3()
@@ -283,7 +343,8 @@ namespace CIS153_FinalProject
                             tokenInArow++;
 
                             // Number of tokens in a row is 4, return winner.
-                            if (tokenInArow == 4) { Console.WriteLine("WIN FOUND XY: " + x + y + " " + currentPlayer.getName()); return currentPlayer; }
+                            if (tokenInArow == 4) { Console.WriteLine("WIN FOUND XY: " + x + y + " " + currentPlayer.getName()); 
+                                                    return currentPlayer; }
                         }
                         // If the tokens don't match, the row is broken.
                         //else { tokenInArow = 0; }
@@ -301,7 +362,8 @@ namespace CIS153_FinalProject
                                 tokenInArow++;
 
                                 // Number of tokens in a row is 4, return winner.
-                                if (tokenInArow == 4) { Console.WriteLine("WIN FOUND XY: " + x + y + " " + currentPlayer.getName()); return currentPlayer; }
+                                if (tokenInArow == 4) { Console.WriteLine("WIN FOUND XY: " + x + y + " " + currentPlayer.getName()); 
+                                                        return currentPlayer; }
                             }
                             // If the tokens don't match, the row is broken.
                             //else { tokenInArow = 0; }
@@ -512,6 +574,8 @@ namespace CIS153_FinalProject
 
     }
 }
+
+
 
 
 

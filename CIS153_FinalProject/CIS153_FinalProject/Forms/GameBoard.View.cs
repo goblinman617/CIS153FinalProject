@@ -145,6 +145,7 @@ namespace CIS153_FinalProject
             board.setPlayerAsOwnerOfNextToken(0);
             endCheck();
             setPlayersTurn(this.board.getCurrentPlayer());
+            board.getSimpleCells();
         }
 
         private void btn_row_1_Click(object sender, EventArgs e)
@@ -211,5 +212,25 @@ namespace CIS153_FinalProject
                 windowController.setView(new EndScreen(windowController, statsHelper, ""));
             }
         }
+
+        //start hover
+        private void btn_row_0_MouseEnter(object sender, EventArgs e) { board.startHover(0); }
+        private void btn_row_1_MouseEnter(object sender, EventArgs e) { board.startHover(1); }
+        private void btn_row_2_MouseEnter(object sender, EventArgs e) { board.startHover(2); }
+        private void btn_row_3_MouseEnter(object sender, EventArgs e) { board.startHover(3); }
+        private void btn_row_4_MouseEnter(object sender, EventArgs e) { board.startHover(4); }
+        private void btn_row_5_MouseEnter(object sender, EventArgs e) { board.startHover(5); }
+        private void btn_row_6_MouseEnter(object sender, EventArgs e) { board.startHover(6); }
+
+        //stop hover
+
+        private void btn_row_0_MouseLeave(object sender, EventArgs e) { board.stopHover(0); }
+        private void btn_row_1_MouseLeave(object sender, EventArgs e) { board.stopHover(1); }
+        private void btn_row_2_MouseLeave(object sender, EventArgs e) { board.stopHover(2); }
+        private void btn_row_3_MouseLeave(object sender, EventArgs e) { board.stopHover(3); }
+        private void btn_row_4_MouseLeave(object sender, EventArgs e) { board.stopHover(4); }
+        private void btn_row_5_MouseLeave(object sender, EventArgs e) { board.stopHover(5); }
+        private void btn_row_6_MouseLeave(object sender, EventArgs e) { board.stopHover(6); }
+
     }
 }
