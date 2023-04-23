@@ -25,6 +25,9 @@ namespace CIS153_FinalProject
         // Store a player, if selected.
         private Player currentOwner = null;
 
+        //abbreviated cellState
+        private cellState state;
+
         // The button we dynamically generate for this cell.
         private Button viewButton;
 
@@ -77,6 +80,11 @@ namespace CIS153_FinalProject
         public Boolean isTaken()
         {
             return currentOwner == null ? false : true;
+        }
+
+        public Player getOwner()
+        {
+            return currentOwner;
         }
     }
 }
