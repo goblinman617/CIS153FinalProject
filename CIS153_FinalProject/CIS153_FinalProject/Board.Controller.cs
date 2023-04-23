@@ -390,9 +390,7 @@ namespace CIS153_FinalProject
                     return false;
                 }
             }
-            //return true;
-            Console.WriteLine("Game is draw");
-            return true;
+            //return true; true;
         }
         
         public Player hasWin() {
@@ -482,3 +480,49 @@ namespace CIS153_FinalProject
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// slowly typing in the background so he can't commit
