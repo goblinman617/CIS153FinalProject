@@ -112,7 +112,12 @@ namespace CIS153_FinalProject
         {
             this.gamemode = mode;
         }
-
+        public string getGamemode() {
+            return gamemode;
+        }
+        public Player getWinner() {
+            return winner;
+        }
         // Set the players for the board.
         public void setPlayerOne(Player value)
         {
@@ -383,14 +388,18 @@ namespace CIS153_FinalProject
         public bool checkDraw()
         {
             int row = 0;
+            int counter = 0;
             for (int col = 0; col < 7; col++)
             {
-                if (!cells[row, col].isTaken())
-                { // If cell isn't taken
-                    return false;
+                if (cells[row, col].isTaken())
+                {
+                    counter++;
                 }
             }
-            return true;
+            if (counter == 7) {
+                return true;
+            }
+            return false;
         }
 
         public Player hasWin()
@@ -603,7 +612,7 @@ namespace CIS153_FinalProject
 
 
 
-GetHashCode
+//GetHashCode
 
 
 

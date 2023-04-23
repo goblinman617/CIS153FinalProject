@@ -28,6 +28,8 @@ namespace CIS153_FinalProject.Forms {
             } else if (winner == 2) {
                 statsController.writeTextFile(winner);
                 txt_display_winner.Text = "The game is a draw!";
+            } else if (winnerName == "") {
+                txt_display_winner.Text = "The game is a draw!";
             } else {
                 txt_display_winner.Text = winnerName + " has won the game!";
             }
