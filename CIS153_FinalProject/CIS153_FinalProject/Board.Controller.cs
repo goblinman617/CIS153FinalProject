@@ -82,6 +82,7 @@ namespace CIS153_FinalProject
             {
                 if (!cells[row, column].isTaken())
                 {
+<<<<<<< HEAD
                     cells[row, column].setCellOwner(currentPlayer);
                     last = cells[row, column];
 
@@ -94,6 +95,7 @@ namespace CIS153_FinalProject
                     }
 
                     swapTurns();
+=======
 
                     // Set the cell owner to the current player.
                     cells[row, column].setCellOwner(currentPlayer);
@@ -115,6 +117,7 @@ namespace CIS153_FinalProject
                     swapTurns();
 
                     // Return cell if one is found.
+>>>>>>> feat/singleplayer
                     return cells[row, column];
                 }
 
@@ -229,6 +232,8 @@ namespace CIS153_FinalProject
         {
             return this.playerTwo;
         }
+
+<<<<<<< HEAD
         public Player getCurrentPlayer()
         {
             return this.currentPlayer;
@@ -596,6 +601,7 @@ namespace CIS153_FinalProject
             return null;
         }
 
+=======
         public Cell[,] getCells()
         {
             return this.cells;
@@ -608,6 +614,7 @@ namespace CIS153_FinalProject
 
         public string GetGamemode()
         { return gamemode; }
+>>>>>>> feat/singleplayer
     }
 }
 

@@ -91,6 +91,10 @@ namespace CIS153_FinalProject
             return currentOwner == null ? false : true;
         }
 
+        public Player getOwner()
+        {
+            return currentOwner;
+        }
     }
 }
 
