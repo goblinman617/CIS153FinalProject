@@ -51,8 +51,9 @@ namespace CIS153_FinalProject
 
             board.setGamemode(gameMode);
 
-            if (gameMode == "single") {
-                playerOne = new Player("Player", Color.Firebrick);
+            if (gameMode == "single")
+            {
+                playerOne = new Player("Player #1", Color.Firebrick);
                 playerTwo = new Player("Computer", Color.Orange);
                 board.setPlayerOne(playerOne);
                 board.setPlayerTwo(playerTwo);
@@ -74,6 +75,22 @@ namespace CIS153_FinalProject
 
 
         }
+
+        public void playAgain()
+        {
+            GameBoard newBoard = new GameBoard(board.getGamemode(), windowController);
+
+            // Set players as the same people.
+            newBoard.setPlayerOne(board.getPlayerOne());
+            newBoard.setPlayerTwo(board.getPlayerTwo());
+
+            // Initalize the board.
+            newBoard.init();
+
+            // Set view.
+            windowController.setView(newBoard);
+        }
+
 
         // Sets & Updates which player's turn it is.
         public void setPlayersTurn(Player player)
@@ -190,26 +207,36 @@ namespace CIS153_FinalProject
             setPlayersTurn(this.board.getCurrentPlayer());
         }
 
-        private void endCheck() {
+        private void endCheck()
+        {
             Player winner = board.getWinner();
             int statsHelper = 3;
-            if (board.getWinner() != null) {
-                if (board.getGamemode() == "single") {
-                    if (winner.getName() == "Computer") {
+            if (board.getWinner() != null)
+            {
+                if (board.getGamemode() == "single")
+                {
+                    if (winner.getName() == "Computer")
+                    {
                         statsHelper = 1;
-                    } else {
+                    }
+                    else
+                    {
                         statsHelper = 0;
                     }
-                    windowController.setView(new EndScreen(windowController, statsHelper, winner.getName()));
-                } else {
-                    windowController.setView(new EndScreen(windowController, statsHelper, winner.getName()));
-                }           
+                    windowController.setView(new EndScreen(windowController, statsHelper, winner.getName(), playAgain));
+                }
+                else
+                {
+                    windowController.setView(new EndScreen(windowController, statsHelper, winner.getName(), playAgain));
+                }
             }
-            if (board.checkDraw()) {
-                if (board.getGamemode() == "single") {
+            if (board.checkDraw())
+            {
+                if (board.getGamemode() == "single")
+                {
                     statsHelper = 2;
                 }
-                windowController.setView(new EndScreen(windowController, statsHelper, ""));
+                windowController.setView(new EndScreen(windowController, statsHelper, "", playAgain));
             }
         }
 

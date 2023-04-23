@@ -26,6 +26,7 @@
             this.txt_display_winner = new System.Windows.Forms.Label();
             this.btn_main_menu = new System.Windows.Forms.Button();
             this.btn_stats = new System.Windows.Forms.Button();
+            this.playAgain = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_display_winner
@@ -41,7 +42,7 @@
             // btn_main_menu
             // 
             this.btn_main_menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_main_menu.Location = new System.Drawing.Point(167, 332);
+            this.btn_main_menu.Location = new System.Drawing.Point(134, 332);
             this.btn_main_menu.Name = "btn_main_menu";
             this.btn_main_menu.Size = new System.Drawing.Size(160, 71);
             this.btn_main_menu.TabIndex = 1;
@@ -60,11 +61,23 @@
             this.btn_stats.UseVisualStyleBackColor = true;
             this.btn_stats.Click += new System.EventHandler(this.btn_stats_Click);
             // 
+            // playAgain
+            // 
+            this.playAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playAgain.Location = new System.Drawing.Point(300, 332);
+            this.playAgain.Name = "playAgain";
+            this.playAgain.Size = new System.Drawing.Size(160, 71);
+            this.playAgain.TabIndex = 3;
+            this.playAgain.Text = "Play Again!";
+            this.playAgain.UseVisualStyleBackColor = true;
+            this.playAgain.Click += new System.EventHandler(this.button1_Click);
+            // 
             // EndScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.playAgain);
             this.Controls.Add(this.btn_stats);
             this.Controls.Add(this.btn_main_menu);
             this.Controls.Add(this.txt_display_winner);
@@ -79,5 +92,6 @@
         private System.Windows.Forms.Label txt_display_winner;
         private System.Windows.Forms.Button btn_main_menu;
         private System.Windows.Forms.Button btn_stats;
+        private System.Windows.Forms.Button playAgain;
     }
 }

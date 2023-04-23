@@ -21,10 +21,12 @@ namespace CIS153_FinalProject
         // Testing stuff DELETE AFTER
         //private 
         //=====================
-        public Stats() {
+        public Stats()
+        {
             InitializeComponent();
         }
-        public Stats(Window x) {
+        public Stats(Window x)
+        {
             InitializeComponent();
             windowController = x;
             statsController.readTextFile(info);
@@ -46,9 +48,10 @@ namespace CIS153_FinalProject
         {
             windowController.setView(new Main_Menu());
         }
-        private void button1_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e)
+        {
             windowController.setView(new EndScreen(windowController, 1, "X"));
         }
-        
+
     }
 }
