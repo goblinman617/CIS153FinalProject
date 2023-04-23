@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Board.Controller.cs" />
     <Compile Include="Cell.Controller.cs" />
-    <Compile Include="Computer.Player.cs" />
     <Compile Include="Forms\EndScreen.cs">
       <SubType>Form</SubType>
     </Compile>

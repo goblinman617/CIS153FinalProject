@@ -31,11 +31,9 @@ namespace CIS153_FinalProject
             // Initalize window controller.
             this.windowController = null;
 
-
             board = new Board(this, this.gameFlowBox);
 
             board.setGamemode(gameMode);
-            this.init();
 
         }
 
@@ -47,11 +45,9 @@ namespace CIS153_FinalProject
             // Initalize window controller.
             this.windowController = windowController;
 
-
             board = new Board(this, this.gameFlowBox);
 
             board.setGamemode(gameMode);
-            this.init();
 
             if (gameMode == "single") {
                 playerOne = new Player("Player", Color.Firebrick);
@@ -119,7 +115,6 @@ namespace CIS153_FinalProject
         private void columnOneSelect_Click(object sender, EventArgs e) // Does this exist?
         {
             //board.addPiece(0);
-            //
             //getNextSpotInColumn(0, this.currentPlayersTurn);
         }
 
@@ -144,86 +139,45 @@ namespace CIS153_FinalProject
         }
 
         private void btn_row_0_Click(object sender, EventArgs e)
-        {;
+        {
+            Console.WriteLine(board.setPlayerAsOwnerOfNextToken(0));
             setPlayersTurn(this.board.getCurrentPlayer());
-            this.board.setPlayerAsOwnerOfNextToken(0);
-
-            if (this.board.GetGamemode() == "single")
-            {
-                this.board.GetComputer().GetNextMove(this.board, this.board.setPlayerAsOwnerOfNextToken);
-            }
         }
 
         private void btn_row_1_Click(object sender, EventArgs e)
         {
             board.setPlayerAsOwnerOfNextToken(1);
             setPlayersTurn(this.board.getCurrentPlayer());
-            this.board.setPlayerAsOwnerOfNextToken(1);
-
-            if (this.board.GetGamemode() == "single")
-            {
-                this.board.GetComputer().GetNextMove(this.board, this.board.setPlayerAsOwnerOfNextToken);
-            }
         }
 
         private void btn_row_2_Click(object sender, EventArgs e)
         {
             board.setPlayerAsOwnerOfNextToken(2);
             setPlayersTurn(this.board.getCurrentPlayer());
-            this.board.setPlayerAsOwnerOfNextToken(2);
-
-            if (this.board.GetGamemode() == "single")
-            {
-                this.board.GetComputer().GetNextMove(this.board, this.board.setPlayerAsOwnerOfNextToken);
-            }
         }
 
         private void btn_row_3_Click(object sender, EventArgs e)
         {
             board.setPlayerAsOwnerOfNextToken(3);
             setPlayersTurn(this.board.getCurrentPlayer());
-            this.board.setPlayerAsOwnerOfNextToken(3);
-
-            if (this.board.GetGamemode() == "single")
-            {
-                this.board.GetComputer().GetNextMove(this.board, this.board.setPlayerAsOwnerOfNextToken);
-            }
         }
 
         private void btn_row_4_Click(object sender, EventArgs e)
         {
             board.setPlayerAsOwnerOfNextToken(4);
             setPlayersTurn(this.board.getCurrentPlayer());
-            this.board.setPlayerAsOwnerOfNextToken(4);
-
-            if (this.board.GetGamemode() == "single")
-            {
-                this.board.GetComputer().GetNextMove(this.board, this.board.setPlayerAsOwnerOfNextToken);
-            }
         }
 
         private void btn_row_5_Click(object sender, EventArgs e)
         {
             board.setPlayerAsOwnerOfNextToken(5);
             setPlayersTurn(this.board.getCurrentPlayer());
-            this.board.setPlayerAsOwnerOfNextToken(5);
-
-            if (this.board.GetGamemode() == "single")
-            {
-                this.board.GetComputer().GetNextMove(this.board, this.board.setPlayerAsOwnerOfNextToken);
-            }
         }
 
         private void btn_row_6_Click(object sender, EventArgs e)
         {
             board.setPlayerAsOwnerOfNextToken(6);
             setPlayersTurn(this.board.getCurrentPlayer());
-            this.board.setPlayerAsOwnerOfNextToken(6);
-
-            if (this.board.GetGamemode() == "single")
-            {
-                this.board.GetComputer().GetNextMove(this.board, this.board.setPlayerAsOwnerOfNextToken);
-            }
         }
     }
 }
