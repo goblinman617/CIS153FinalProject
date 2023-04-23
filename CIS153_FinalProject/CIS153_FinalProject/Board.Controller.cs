@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace CIS153_FinalProject
 {
@@ -28,6 +32,8 @@ namespace CIS153_FinalProject
 
         //winner
         private Player winner = null;
+        // Varible for the computer player.
+        Computer computer;
 
 
         private Cell[,] cells = new Cell[6, 7];
@@ -63,7 +69,6 @@ namespace CIS153_FinalProject
                 }
             }
 
-            currentPlayer = playerOne;
         }
 
 
@@ -77,6 +82,7 @@ namespace CIS153_FinalProject
             {
                 if (!cells[row, column].isTaken())
                 {
+<<<<<<< HEAD
                     cells[row, column].setCellOwner(currentPlayer);
                     last = cells[row, column];
 
@@ -89,10 +95,92 @@ namespace CIS153_FinalProject
                     }
 
                     swapTurns();
+=======
+
+                    // Set the cell owner to the current player.
+                    cells[row, column].setCellOwner(currentPlayer);
+
+                    // Check for win
+                    if (currentPlayer != null && checkWin() != null)
+                    {
+                        Console.WriteLine("Winner!!!!", currentPlayer.getColor());
+                    }
+
+                    // Playing in singleplayer mode.
+                    if (gamemode == "single")
+                    {
+                        // Tell the computer what the players last move was.
+                        computer.SetOpponetPreviousMove(cells[row, column]);
+                    }
+
+                    // Swap players.
+                    swapTurns();
+
+                    // Return cell if one is found.
+>>>>>>> feat/singleplayer
                     return cells[row, column];
                 }
 
 
+            }
+
+            return null;
+        }
+
+        public Player checkWin()
+        {
+            // Check Rows
+            for (int r = 0; r < cells.GetLength(0); r++)
+            {
+                // Number of like tokens in a row.
+                int tokenInArow = 0;
+
+                for (int c = 0; c < cells.GetLength(1); c++)
+                {
+                    // Check if current token is owned by the current player.
+                    if (cells[r, c].getOwner() == currentPlayer)
+                    {
+                        tokenInArow++;
+
+                        // If we find 4 Like tokens, return winner.
+                        if (tokenInArow == 4)
+                        {
+                            return currentPlayer;
+                        }
+                    }
+                    // If the tokens don't match, the row is broken.
+                    else
+                    {
+                        tokenInArow = 0;
+                    }
+                }
+            }
+
+            // Check Columns
+            for (int c = 0; c < cells.GetLength(1); c++)
+            {
+                // Number of like tokens in a row.
+                int tokenInArow = 0;
+
+                for (int r = 0; r < cells.GetLength(0); r++)
+                {
+                    // Check if current token is owned by current player.
+                    if (cells[r, c].getOwner() == currentPlayer)
+                    {
+                        tokenInArow++;
+
+                        // Number of tokens in a row is 4, return winner.
+                        if (tokenInArow == 4)
+                        {
+                            return currentPlayer;
+                        }
+                    }
+                    // If the tokens don't match, the row is broken.
+                    else
+                    {
+                        tokenInArow = 0;
+                    }
+                }
             }
 
             return null;
@@ -111,6 +199,17 @@ namespace CIS153_FinalProject
         public void setGamemode(String mode)
         {
             this.gamemode = mode;
+
+            // Singleplayer mode is selected, set up single player.
+            if (mode == "single")
+            {
+                // Create a new computer instance.
+                computer = new Computer("Computer", Color.Orange);
+
+                // Set players for the single player game.
+                playerTwo = computer;
+                playerOne = new Player("You", Color.Firebrick);
+            }
         }
 
         // Set the players for the board.
@@ -134,6 +233,7 @@ namespace CIS153_FinalProject
             return this.playerTwo;
         }
 
+<<<<<<< HEAD
         public Player getCurrentPlayer()
         {
             return this.currentPlayer;
@@ -501,6 +601,20 @@ namespace CIS153_FinalProject
             return null;
         }
 
+=======
+        public Cell[,] getCells()
+        {
+            return this.cells;
+        }
+
+        public Computer GetComputer()
+        {
+            return computer;
+        }
+
+        public string GetGamemode()
+        { return gamemode; }
+>>>>>>> feat/singleplayer
     }
 }
 
