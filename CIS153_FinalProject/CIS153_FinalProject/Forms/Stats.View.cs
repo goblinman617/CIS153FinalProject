@@ -18,9 +18,6 @@ namespace CIS153_FinalProject
         private MatchHistory info = new MatchHistory();
         private Window windowController;
         private StatsController statsController = new StatsController();
-        // Testing stuff DELETE AFTER
-        //private 
-        //=====================
         public Stats()
         {
             InitializeComponent();
@@ -47,10 +44,6 @@ namespace CIS153_FinalProject
         private void btn_to_menu_Click(object sender, EventArgs e)
         {
             windowController.setView(new Main_Menu());
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            windowController.setView(new EndScreen(windowController, 1, "X"));
         }
 
     }

@@ -27,6 +27,7 @@
             this.btn_main_menu = new System.Windows.Forms.Button();
             this.btn_stats = new System.Windows.Forms.Button();
             this.playAgain = new System.Windows.Forms.Button();
+            this.btn_review_game = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_display_winner
@@ -42,7 +43,7 @@
             // btn_main_menu
             // 
             this.btn_main_menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_main_menu.Location = new System.Drawing.Point(134, 332);
+            this.btn_main_menu.Location = new System.Drawing.Point(39, 332);
             this.btn_main_menu.Name = "btn_main_menu";
             this.btn_main_menu.Size = new System.Drawing.Size(160, 71);
             this.btn_main_menu.TabIndex = 1;
@@ -53,7 +54,7 @@
             // btn_stats
             // 
             this.btn_stats.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_stats.Location = new System.Drawing.Point(466, 332);
+            this.btn_stats.Location = new System.Drawing.Point(610, 332);
             this.btn_stats.Name = "btn_stats";
             this.btn_stats.Size = new System.Drawing.Size(160, 71);
             this.btn_stats.TabIndex = 2;
@@ -64,7 +65,7 @@
             // playAgain
             // 
             this.playAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playAgain.Location = new System.Drawing.Point(300, 332);
+            this.playAgain.Location = new System.Drawing.Point(422, 332);
             this.playAgain.Name = "playAgain";
             this.playAgain.Size = new System.Drawing.Size(160, 71);
             this.playAgain.TabIndex = 3;
@@ -72,11 +73,23 @@
             this.playAgain.UseVisualStyleBackColor = true;
             this.playAgain.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btn_review_game
+            // 
+            this.btn_review_game.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_review_game.Location = new System.Drawing.Point(234, 332);
+            this.btn_review_game.Name = "btn_review_game";
+            this.btn_review_game.Size = new System.Drawing.Size(160, 71);
+            this.btn_review_game.TabIndex = 4;
+            this.btn_review_game.Text = "Review Game";
+            this.btn_review_game.UseVisualStyleBackColor = true;
+            this.btn_review_game.Click += new System.EventHandler(this.btn_review_game_Click);
+            // 
             // EndScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_review_game);
             this.Controls.Add(this.playAgain);
             this.Controls.Add(this.btn_stats);
             this.Controls.Add(this.btn_main_menu);
@@ -93,5 +106,6 @@
         private System.Windows.Forms.Button btn_main_menu;
         private System.Windows.Forms.Button btn_stats;
         private System.Windows.Forms.Button playAgain;
+        private System.Windows.Forms.Button btn_review_game;
     }
 }

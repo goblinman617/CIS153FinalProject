@@ -91,6 +91,18 @@ namespace CIS153_FinalProject
             windowController.setView(newBoard);
         }
 
+        public void reviewBoard() 
+        {
+            btn_row_0.Hide();
+            btn_row_1.Hide();
+            btn_row_2.Hide();
+            btn_row_3.Hide();
+            btn_row_4.Hide();
+            btn_row_5.Hide();
+            btn_row_6.Hide();
+            linkLabel1.Text = "<-- Go back";
+        }
+
 
         // Sets & Updates which player's turn it is.
         public void setPlayersTurn(Player player)
@@ -223,11 +235,11 @@ namespace CIS153_FinalProject
                     {
                         statsHelper = 0;
                     }
-                    windowController.setView(new EndScreen(windowController, statsHelper, winner.getName(), playAgain));
+                    windowController.setView(new EndScreen(windowController, statsHelper, winner.getName(), this));
                 }
                 else
                 {
-                    windowController.setView(new EndScreen(windowController, statsHelper, winner.getName(), playAgain));
+                    windowController.setView(new EndScreen(windowController, statsHelper, winner.getName(), this));
                 }
             }
             if (board.checkDraw())
@@ -236,7 +248,7 @@ namespace CIS153_FinalProject
                 {
                     statsHelper = 2;
                 }
-                windowController.setView(new EndScreen(windowController, statsHelper, "", playAgain));
+                windowController.setView(new EndScreen(windowController, statsHelper, "", this));
             }
         }
 

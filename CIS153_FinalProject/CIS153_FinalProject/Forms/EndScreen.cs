@@ -12,7 +12,7 @@ namespace CIS153_FinalProject.Forms
 {
     public partial class EndScreen : Form
     {
-        Action _playAgain;
+        GameBoard boardView;
 
         StatsController statsController = new StatsController();
         Window windowController;
@@ -21,11 +21,11 @@ namespace CIS153_FinalProject.Forms
             InitializeComponent();
         }
         // Currently we are passing a lot of stuff. I'm not sure exactly how it will work so we can
-        public EndScreen(Window controller, int winner, string winnerName, Action playAgain)
+        public EndScreen(Window controller, int winner, string winnerName, GameBoard boardView)
         { // Pass an int for whoever has won the game, 0 = p1 win, 1 = p2 win, 2 = draw, 3 = NO WINNER TO BE ASSIGNED AKA 2 PLAYER GAME
             InitializeComponent();
 
-            _playAgain = playAgain;
+            this.boardView = boardView;
 
             windowController = controller;
             if (winner == 0)
@@ -95,9 +95,16 @@ namespace CIS153_FinalProject.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this._playAgain != null)
+            if (this.boardView != null)
             {
-                this._playAgain();
+                this.boardView.playAgain();
+            }
+        }
+
+        private void btn_review_game_Click(object sender, EventArgs e) {
+            if (this.boardView != null) {
+                this.boardView.reviewBoard();
+                windowController.goBack();
             }
         }
     }
