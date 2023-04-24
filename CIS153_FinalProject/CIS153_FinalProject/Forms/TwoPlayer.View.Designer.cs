@@ -38,6 +38,8 @@
             this.errorLabel = new System.Windows.Forms.Label();
             this.btn_color_p1 = new System.Windows.Forms.Button();
             this.btn_color_p2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -136,11 +138,10 @@
             this.btn_color_p1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_color_p1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_color_p1.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_color_p1.Location = new System.Drawing.Point(275, 84);
+            this.btn_color_p1.Location = new System.Drawing.Point(275, 108);
             this.btn_color_p1.Name = "btn_color_p1";
-            this.btn_color_p1.Size = new System.Drawing.Size(198, 46);
+            this.btn_color_p1.Size = new System.Drawing.Size(237, 22);
             this.btn_color_p1.TabIndex = 8;
-            this.btn_color_p1.Text = "Player #1 Color";
             this.btn_color_p1.UseVisualStyleBackColor = false;
             this.btn_color_p1.Click += new System.EventHandler(this.btn_color_p1_Click);
             // 
@@ -150,19 +151,41 @@
             this.btn_color_p2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_color_p2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_color_p2.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_color_p2.Location = new System.Drawing.Point(275, 157);
+            this.btn_color_p2.Location = new System.Drawing.Point(275, 181);
             this.btn_color_p2.Name = "btn_color_p2";
-            this.btn_color_p2.Size = new System.Drawing.Size(198, 46);
+            this.btn_color_p2.Size = new System.Drawing.Size(237, 22);
             this.btn_color_p2.TabIndex = 9;
-            this.btn_color_p2.Text = "Player #2 Color";
             this.btn_color_p2.UseVisualStyleBackColor = false;
             this.btn_color_p2.Click += new System.EventHandler(this.btn_color_p2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(271, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 21);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Player #1\'s Color";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(271, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 21);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Player #2\'s Color";
             // 
             // TwoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 382);
+            this.ClientSize = new System.Drawing.Size(550, 364);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_color_p2);
             this.Controls.Add(this.btn_color_p1);
             this.Controls.Add(this.errorLabel);
@@ -192,5 +215,7 @@
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Button btn_color_p1;
         private System.Windows.Forms.Button btn_color_p2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

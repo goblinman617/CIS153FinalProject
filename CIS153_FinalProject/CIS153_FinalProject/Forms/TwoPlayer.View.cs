@@ -79,5 +79,10 @@ namespace CIS153_FinalProject.Forms
             player1Color.ShowDialog();
             btn_color_p1.BackColor = player1Color.Color;
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -66,7 +66,6 @@
     <Compile Include="Forms\TwoPlayer.View.Designer.cs">
       <DependentUpon>TwoPlayer.View.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.Controller.cs" />
     <Compile Include="Forms\GameBoard.View.cs">
       <SubType>Form</SubType>
     </Compile>

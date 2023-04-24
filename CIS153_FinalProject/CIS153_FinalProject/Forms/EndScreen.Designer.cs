@@ -32,8 +32,8 @@
             // 
             // txt_display_winner
             // 
-            this.txt_display_winner.Font = new System.Drawing.Font("Lucida Sans Unicode", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_display_winner.Location = new System.Drawing.Point(12, 153);
+            this.txt_display_winner.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_display_winner.Location = new System.Drawing.Point(12, 9);
             this.txt_display_winner.Name = "txt_display_winner";
             this.txt_display_winner.Size = new System.Drawing.Size(776, 45);
             this.txt_display_winner.TabIndex = 0;
@@ -42,53 +42,69 @@
             // 
             // btn_main_menu
             // 
-            this.btn_main_menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_main_menu.Location = new System.Drawing.Point(39, 332);
+            this.btn_main_menu.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_main_menu.FlatAppearance.BorderSize = 0;
+            this.btn_main_menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_main_menu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_main_menu.ForeColor = System.Drawing.Color.White;
+            this.btn_main_menu.Location = new System.Drawing.Point(197, 259);
             this.btn_main_menu.Name = "btn_main_menu";
-            this.btn_main_menu.Size = new System.Drawing.Size(160, 71);
+            this.btn_main_menu.Size = new System.Drawing.Size(399, 47);
             this.btn_main_menu.TabIndex = 1;
             this.btn_main_menu.Text = "Main Menu";
-            this.btn_main_menu.UseVisualStyleBackColor = true;
+            this.btn_main_menu.UseVisualStyleBackColor = false;
             this.btn_main_menu.Click += new System.EventHandler(this.btn_main_menu_Click);
             // 
             // btn_stats
             // 
-            this.btn_stats.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_stats.Location = new System.Drawing.Point(610, 332);
+            this.btn_stats.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_stats.FlatAppearance.BorderSize = 0;
+            this.btn_stats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_stats.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_stats.ForeColor = System.Drawing.Color.White;
+            this.btn_stats.Location = new System.Drawing.Point(197, 203);
             this.btn_stats.Name = "btn_stats";
-            this.btn_stats.Size = new System.Drawing.Size(160, 71);
+            this.btn_stats.Size = new System.Drawing.Size(399, 47);
             this.btn_stats.TabIndex = 2;
             this.btn_stats.Text = "Stats Page";
-            this.btn_stats.UseVisualStyleBackColor = true;
+            this.btn_stats.UseVisualStyleBackColor = false;
             this.btn_stats.Click += new System.EventHandler(this.btn_stats_Click);
             // 
             // playAgain
             // 
-            this.playAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playAgain.Location = new System.Drawing.Point(422, 332);
+            this.playAgain.BackColor = System.Drawing.Color.DodgerBlue;
+            this.playAgain.FlatAppearance.BorderSize = 0;
+            this.playAgain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playAgain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playAgain.ForeColor = System.Drawing.Color.White;
+            this.playAgain.Location = new System.Drawing.Point(197, 91);
             this.playAgain.Name = "playAgain";
-            this.playAgain.Size = new System.Drawing.Size(160, 71);
+            this.playAgain.Size = new System.Drawing.Size(399, 47);
             this.playAgain.TabIndex = 3;
             this.playAgain.Text = "Play Again!";
-            this.playAgain.UseVisualStyleBackColor = true;
+            this.playAgain.UseVisualStyleBackColor = false;
             this.playAgain.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_review_game
             // 
-            this.btn_review_game.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_review_game.Location = new System.Drawing.Point(234, 332);
+            this.btn_review_game.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_review_game.FlatAppearance.BorderSize = 0;
+            this.btn_review_game.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_review_game.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_review_game.ForeColor = System.Drawing.Color.White;
+            this.btn_review_game.Location = new System.Drawing.Point(197, 147);
             this.btn_review_game.Name = "btn_review_game";
-            this.btn_review_game.Size = new System.Drawing.Size(160, 71);
+            this.btn_review_game.Size = new System.Drawing.Size(399, 47);
             this.btn_review_game.TabIndex = 4;
             this.btn_review_game.Text = "Review Game";
-            this.btn_review_game.UseVisualStyleBackColor = true;
+            this.btn_review_game.UseVisualStyleBackColor = false;
             this.btn_review_game.Click += new System.EventHandler(this.btn_review_game_Click);
             // 
             // EndScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 337);
             this.Controls.Add(this.btn_review_game);
             this.Controls.Add(this.playAgain);
             this.Controls.Add(this.btn_stats);

@@ -28,28 +28,29 @@ namespace CIS153_FinalProject.Forms
             this.boardView = boardView;
 
             windowController = controller;
-            if (winner == 0)
-            { // probably find a better way 
-                statsController.writeTextFile(winner);
-                txt_display_winner.Text = winnerName + " has won the game!";
-            }
-            else if (winner == 1)
+
+            switch (winner)
             {
-                statsController.writeTextFile(winner);
-                txt_display_winner.Text = "The AI has won the game!";
+                case 0:
+                    statsController.writeTextFile(winner);
+                    txt_display_winner.Text = "Awesome! " + winnerName + " has won the game!";
+                    break;
+                case 1:
+                    statsController.writeTextFile(winner);
+                    txt_display_winner.Text = "Booooo! The Computer won the game.";
+                    break;
+                case 2:
+                    statsController.writeTextFile(winner);
+                    txt_display_winner.Text = "The game ended in a draw, try again?";
+                    break;
+                default:
+                    txt_display_winner.Text = "Unknown Game Result.";
+                    break;
             }
-            else if (winner == 2)
+
+            if (winnerName == "")
             {
-                statsController.writeTextFile(winner);
-                txt_display_winner.Text = "The game is a draw!";
-            }
-            else if (winnerName == "")
-            {
-                txt_display_winner.Text = "The game is a draw!";
-            }
-            else
-            {
-                txt_display_winner.Text = winnerName + " has won the game!";
+                txt_display_winner.Text = "The game ended in a draw, try again?!";
             }
         }
 
@@ -58,28 +59,29 @@ namespace CIS153_FinalProject.Forms
             InitializeComponent();
 
             windowController = controller;
-            if (winner == 0)
-            { // probably find a better way 
-                statsController.writeTextFile(winner);
-                txt_display_winner.Text = winnerName + " has won the game!";
-            }
-            else if (winner == 1)
+
+            switch (winner)
             {
-                statsController.writeTextFile(winner);
-                txt_display_winner.Text = "The AI has won the game!";
+                case 0:
+                    statsController.writeTextFile(winner);
+                    txt_display_winner.Text = "Awesome! " + winnerName + " has won the game!";
+                    break;
+                case 1:
+                    statsController.writeTextFile(winner);
+                    txt_display_winner.Text = "Booooo! The Computer won the game.";
+                    break;
+                case 2:
+                    statsController.writeTextFile(winner);
+                    txt_display_winner.Text = "The game ended in a draw, try again?";
+                    break;
+                default:
+                    txt_display_winner.Text = "Unknown Game Result.";
+                    break;
             }
-            else if (winner == 2)
+
+            if (winnerName == "")
             {
-                statsController.writeTextFile(winner);
-                txt_display_winner.Text = "The game is a draw!";
-            }
-            else if (winnerName == "")
-            {
-                txt_display_winner.Text = "The game is a draw!";
-            }
-            else
-            {
-                txt_display_winner.Text = winnerName + " has won the game!";
+                txt_display_winner.Text = "The game ended in a draw, try again?!";
             }
         }
 
@@ -101,8 +103,10 @@ namespace CIS153_FinalProject.Forms
             }
         }
 
-        private void btn_review_game_Click(object sender, EventArgs e) {
-            if (this.boardView != null) {
+        private void btn_review_game_Click(object sender, EventArgs e)
+        {
+            if (this.boardView != null)
+            {
                 this.boardView.reviewBoard();
                 windowController.goBack();
             }

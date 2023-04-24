@@ -60,34 +60,31 @@
             this.playerOneColor.FlatAppearance.BorderSize = 0;
             this.playerOneColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playerOneColor.ForeColor = System.Drawing.Color.LightGray;
-            this.playerOneColor.Location = new System.Drawing.Point(9, 616);
+            this.playerOneColor.Location = new System.Drawing.Point(9, 598);
             this.playerOneColor.Name = "playerOneColor";
             this.playerOneColor.Size = new System.Drawing.Size(38, 37);
             this.playerOneColor.TabIndex = 50;
             this.playerOneColor.UseVisualStyleBackColor = false;
-            this.playerOneColor.Click += new System.EventHandler(this.button1_Click);
             // 
             // playerOneLabel
             // 
             this.playerOneLabel.AutoSize = true;
             this.playerOneLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerOneLabel.Location = new System.Drawing.Point(51, 622);
+            this.playerOneLabel.Location = new System.Drawing.Point(51, 604);
             this.playerOneLabel.Name = "playerOneLabel";
             this.playerOneLabel.Size = new System.Drawing.Size(46, 25);
             this.playerOneLabel.TabIndex = 51;
             this.playerOneLabel.Text = "Ben";
-            this.playerOneLabel.Click += new System.EventHandler(this.playerOneLabel_Click);
             // 
             // playerTwoLabel
             // 
             this.playerTwoLabel.AutoSize = true;
             this.playerTwoLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerTwoLabel.Location = new System.Drawing.Point(236, 622);
+            this.playerTwoLabel.Location = new System.Drawing.Point(236, 604);
             this.playerTwoLabel.Name = "playerTwoLabel";
             this.playerTwoLabel.Size = new System.Drawing.Size(54, 25);
             this.playerTwoLabel.TabIndex = 53;
             this.playerTwoLabel.Text = "Matt";
-            this.playerTwoLabel.Click += new System.EventHandler(this.playerTwoLabel_Click);
             // 
             // playerTwoColor
             // 
@@ -95,12 +92,11 @@
             this.playerTwoColor.FlatAppearance.BorderSize = 0;
             this.playerTwoColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playerTwoColor.ForeColor = System.Drawing.Color.LightGray;
-            this.playerTwoColor.Location = new System.Drawing.Point(194, 616);
+            this.playerTwoColor.Location = new System.Drawing.Point(194, 598);
             this.playerTwoColor.Name = "playerTwoColor";
             this.playerTwoColor.Size = new System.Drawing.Size(38, 37);
             this.playerTwoColor.TabIndex = 52;
             this.playerTwoColor.UseVisualStyleBackColor = false;
-            this.playerTwoColor.Click += new System.EventHandler(this.button2_Click);
             // 
             // gameFlowBox
             // 
@@ -114,7 +110,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(435, 626);
+            this.linkLabel1.Location = new System.Drawing.Point(435, 608);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(142, 21);
             this.linkLabel1.TabIndex = 56;
@@ -245,7 +241,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 667);
+            this.ClientSize = new System.Drawing.Size(589, 647);
             this.Controls.Add(this.btn_row_6);
             this.Controls.Add(this.btn_row_5);
             this.Controls.Add(this.btn_row_4);

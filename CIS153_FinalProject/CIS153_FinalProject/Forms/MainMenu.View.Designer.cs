@@ -26,7 +26,6 @@
             this.btn_open_stats = new System.Windows.Forms.Button();
             this.btn_single_player = new System.Windows.Forms.Button();
             this.btn_two_player = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_open_stats
@@ -74,25 +73,14 @@
             this.btn_two_player.UseVisualStyleBackColor = false;
             this.btn_two_player.Click += new System.EventHandler(this.btn_two_player_Click);
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 300F);
-            this.label2.Location = new System.Drawing.Point(83, -60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "4";
-            // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::CIS153_FinalProject.Properties.Resources.c4_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(784, 686);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(786, 708);
             this.Controls.Add(this.btn_two_player);
             this.Controls.Add(this.btn_single_player);
             this.Controls.Add(this.btn_open_stats);
@@ -107,7 +95,6 @@
         private System.Windows.Forms.Button btn_open_stats;
         private System.Windows.Forms.Button btn_single_player;
         private System.Windows.Forms.Button btn_two_player;
-        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -91,7 +91,7 @@ namespace CIS153_FinalProject
             windowController.setView(newBoard);
         }
 
-        public void reviewBoard() 
+        public void reviewBoard()
         {
             btn_row_0.Hide();
             btn_row_1.Hide();
@@ -147,11 +147,6 @@ namespace CIS153_FinalProject
         {
             //board.addPiece(0);
             //getNextSpotInColumn(0, this.currentPlayersTurn);
-        }
-
-        private void playerTwoLabel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
