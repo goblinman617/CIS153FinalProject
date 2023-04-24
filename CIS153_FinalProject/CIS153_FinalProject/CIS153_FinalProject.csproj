@@ -69,11 +69,13 @@
       <DependentUpon>TwoPlayer.View.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.Controller.cs" />
-    <Compile Include="Forms\GameBoard.View.cs">
+    <Compile Include="..\..\..\..\..\..\Desktop\BANGOR\GameBoard.View.cs">
       <SubType>Form</SubType>
+      <Link>Forms\GameBoard.View.cs</Link>
     </Compile>
-    <Compile Include="Forms\GameBoard.View.Designer.cs">
+    <Compile Include="..\..\..\..\..\..\Desktop\BANGOR\GameBoard.View.Designer.cs">
       <DependentUpon>GameBoard.View.cs</DependentUpon>
+      <Link>Forms\GameBoard.View.Designer.cs</Link>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -90,8 +92,9 @@
     <EmbeddedResource Include="Forms\EndScreen.resx">
       <DependentUpon>EndScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GameBoard.View.resx">
+    <EmbeddedResource Include="..\..\..\..\..\..\Desktop\BANGOR\GameBoard.View.resx">
       <DependentUpon>GameBoard.View.cs</DependentUpon>
+      <Link>Forms\GameBoard.View.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenu.View.resx">
       <DependentUpon>MainMenu.View.cs</DependentUpon>

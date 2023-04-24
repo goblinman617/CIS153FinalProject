@@ -101,65 +101,48 @@ namespace CIS153_FinalProject
             return null;
         }
 
-        public int doAI(Board b)
+        public void doAI(Board b)
         {
-            int move = -1;
+
             if (playForWin(b) != -1) //rule 1
             {
-                move = playForWin(b);
-                Console.WriteLine("move: " + move);
-                return move;
+                // nothing
             }
-            if (avoidLoss(b) != -1) //rule 2
+            else if (avoidLoss(b) != -1) //rule 2
             {
-                move = avoidLoss(b);
-                Console.WriteLine("move: " + move);
-                return move;
-
-            }
-            if (placeBetween(b) != -1)
+                // nothing
+            } 
+            else
             {
-                move = placeBetween(b);
-                Console.WriteLine("move: " + move);
-                return move;
-            }
-            if (placeRandom(b) != -1)
-            {
-                move = placeRandom(b);
-                Console.WriteLine("move: " + move);
-                return move;
+                placeRandom(b);
             }
 
             currentPlayer = playerOne;
 
-            return -1;
-
-            Console.WriteLine("move: " + move);
-        }
-        /*for (int r = height - 1; r >= 0; r--)
-        {
-            for (int c = 0; c < 7; c++)
+            /*for (int r = height - 1; r >= 0; r--)
             {
-                int numofLikeTokens = 0;
-                for (int i = 0; i < 4; i++)
+                for (int c = 0; c < 7; c++)
                 {
-                    if (board.getCells()[r, c].getOwner() != null)
+                    int numofLikeTokens = 0;
+                    for (int i = 0; i < 4; i++)
                     {
-                        if (board.getCells()[r, c].getOwner() != null && board.getCells()[r, c].getOwner() == board.getCells()[r - i, c].getOwner())
+                        if (board.getCells()[r, c].getOwner() != null)
                         {
-                            numofLikeTokens++;
+                            if (board.getCells()[r, c].getOwner() != null && board.getCells()[r, c].getOwner() == board.getCells()[r - i, c].getOwner())
+                            {
+                                numofLikeTokens++;
+                            }
+                        }
+                        else
+                        {
+                            numofLikeTokens = 0;
                         }
                     }
-                    else
-                    {
-                        numofLikeTokens = 0;
-                    }
+                    Console.WriteLine(numofLikeTokens);
                 }
-                Console.WriteLine(numofLikeTokens);
-            }
-        }*/
+            }*/
 
-    
+        }
 
         private int playForWin(Board b)
         {
@@ -183,15 +166,17 @@ namespace CIS153_FinalProject
             //for check all rows for a win and set move if the move wins
             for (int col = 0; col < 7; col++)
             {
-                b.setPlayerAsOwnerOfNextToken(col); //swapped to CPU turn
-                if (b.getWinner() != null)
-                {
-                    return col;
-                }
+                if (b.setPlayerAsOwnerOfNextToken(col) != null) {
+                    if (b.getWinner() != null) {
+                        b.removeLastPiece();
+                        b.setPlayerAsOwnerOfNextToken(col);
+                        return col;
+                    }
 
-                //reset temp and swap
-                b.removeLastPiece(); //need in both
-                b.swapTurns(); //swap to players turn
+                    //reset temp and swap
+                    b.removeLastPiece();
+                    b.swapTurns(); //swap to players turn
+                }
             }
             b.swapTurns(); //swap to 
             return -1;
@@ -200,42 +185,30 @@ namespace CIS153_FinalProject
         private int placeBetween(Board b) //place between computer pieces in middle columns
         {
 
-            //Cell last = b.getLast();
+            Cell last = b.getLast();
             Cell[,] tempCells = new Cell[6, 7];
-            int lR;
-            int lC;
+            int lR = last.getPosition()[0];
+            int lC = last.getPosition()[1];
 
             tempCells = b.getCells();
 
-
-            for (int col = 1; col < 5; col++)
+            //for check all rows for nighboring cells to make 3 in a row
+            for (int col = 1; col < 6; col++)
             {
 
                 b.setPlayerAsOwnerOfNextToken(col);
-
-                lR = b.getLast().getPosition()[0];
-                lC = b.getLast().getPosition()[1];
-
                 last = b.getLast();
-                if (lR < 5)
+
+                for (int i = 1; i > -2; i--)
                 {
-                    for (int i = 1; i > -2; i--)
-                    {
-                        if (cells[lR + i, lC - 1].isTaken() && //don't check if both arent fun
-                            cells[lR + i, lC + 1].isTaken())
-                        {
-                            if (cells[lR + i, lC - 1].getOwner().getName() == "Computer" && //if both sides are computer make 3 in checked col
-                                cells[lR + i, lC + 1].getOwner().getName() == "Computer")
-                            { //if cells at position have computer owner
+                    if (cells[lR + i, lC - 1].getOwner().getName() == "Computer" &&
+                        cells[lR + i, lC - 1].getOwner().getName() == "Computer")
+                    { //if cells at position have computer owner
 
-                                return col;
+                        return col;
 
-                            }
-                        }
-                            
                     }
                 }
-                    
                 b.removeLastPiece();
 
                 //temp = b;
@@ -247,23 +220,19 @@ namespace CIS153_FinalProject
 
         private int placeRandom(Board b)
         {
-            int lastCol = last.getPosition()[1];
             Random r = new Random();
-            int change = r.Next(-2, 2);
-
-            if (lastCol + change >= 0 && lastCol + change <= 6)
+            int change = r.Next(-2,2);
+            
+            if (2 + change >= 0 && 2 + change <= 6)
             {
-                if (b.setPlayerAsOwnerOfNextToken(lastCol + change) != null)
+                if (b.setPlayerAsOwnerOfNextToken(2 + change) != null)
                 {
-                    Console.WriteLine(lastCol);
-                    Console.WriteLine(change);
-
-                    return lastCol + change;
+                    
+                    return 2 + change;
                 }
             }
             for (int i = 0; i < 7; i++)
             {
-                Console.WriteLine(i);
                 if (b.setPlayerAsOwnerOfNextToken(i) != null)
                 {
                     return i;
@@ -518,24 +487,10 @@ namespace CIS153_FinalProject
         {
             getLast().setCellOwner(null);
         }
-
     }
 }
 
 
-//for check all rows for a win and set move if the move wins
-/*for (int col = 0; col < 7; col++)
-{
-    b.setPlayerAsOwnerOfNextToken(col); //swap to player turn
-    if (b.getWinner() != null)
-    {
-        return col;
-    }
-    removeLastPiece();
-    swapTurns(); //swap back to ai turn
-}
-
-return -1;*/
 
 
 
