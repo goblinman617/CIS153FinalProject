@@ -111,11 +111,11 @@ namespace CIS153_FinalProject
             else if (avoidLoss(b) != -1) //rule 2
             {
                 move = avoidLoss(b);
-            } 
-            //else if (placeBetween(b) != -1) 
-            //{
-            //    move = placeBetween(b);
-            //}
+            }
+            else if (placeBetween(b) != -1) 
+            {
+                move = placeBetween(b);
+            }
 
             if (move != -1) {
                 //setPlayerAsOwnerOfNextToken(move); 
@@ -186,20 +186,20 @@ namespace CIS153_FinalProject
 
         private int placeBetween(Board b) //place between computer pieces in middle columns
         {
-            Board temp = b;
-            Cell last = temp.getLast();
-            Cell[,] cells = new Cell[6, 7];
+
+            Cell last = b.getLast();
+            Cell[,] tempCells = new Cell[6, 7];
             int lR = last.getPosition()[0];
             int lC = last.getPosition()[1];
 
-            cells = temp.getCells();
+            tempCells = b.getCells();
 
             //for check all rows for nighboring cells to make 3 in a row
             for (int col = 1; col < 6; col++)
             {
-                temp = b;
-                temp.setPlayerAsOwnerOfNextToken(col);
-                last = temp.getLast();
+
+                b.setPlayerAsOwnerOfNextToken(col);
+                last = b.getLast();
 
                 for (int i = 1; i > -2; i--)
                 {
@@ -211,11 +211,8 @@ namespace CIS153_FinalProject
 
                     }
                 }
+                b.removeLastPiece();
 
-                if (temp.getWinner() != null)
-                {
-                    return col;
-                }
                 //temp = b;
 
             }
