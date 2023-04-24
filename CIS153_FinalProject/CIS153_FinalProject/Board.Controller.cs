@@ -247,23 +247,32 @@ namespace CIS153_FinalProject
 
         private int placeRandom(Board b)
         {
-            int lastCol = last.getPosition()[1];
             Random r = new Random();
+<<<<<<< Updated upstream
             int change = r.Next(-2, 2);
 
             if (lastCol + change >= 0 && lastCol + change <= 6)
+=======
+            int change = r.Next(-2,2);
+            
+            if (2 + change >= 0 && 2 + change <= 6)
+>>>>>>> Stashed changes
             {
-                if (b.setPlayerAsOwnerOfNextToken(lastCol + change) != null)
+                if (b.setPlayerAsOwnerOfNextToken(2 + change) != null)
                 {
+<<<<<<< Updated upstream
                     Console.WriteLine(lastCol);
                     Console.WriteLine(change);
 
                     return lastCol + change;
+=======
+                    
+                    return 2 + change;
+>>>>>>> Stashed changes
                 }
             }
             for (int i = 0; i < 7; i++)
             {
-                Console.WriteLine(i);
                 if (b.setPlayerAsOwnerOfNextToken(i) != null)
                 {
                     return i;
