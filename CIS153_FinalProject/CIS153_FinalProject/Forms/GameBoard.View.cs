@@ -25,6 +25,8 @@ namespace CIS153_FinalProject
         private Player playerOne;
         private Player playerTwo;
 
+        private Comp computer;
+
         // Constructor with player mode and window controller.
         public GameBoard(string gameMode)
         {

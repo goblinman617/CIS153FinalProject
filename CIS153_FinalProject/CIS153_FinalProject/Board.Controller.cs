@@ -104,20 +104,22 @@ namespace CIS153_FinalProject
         {
             int move = -1;
 
-            if (avoidLoss(b) != -1) //rule 1
+            if (playForWin(b) != -1) //rule 1
             {
-                move = avoidLoss(b);
+                move = playForWin(b);
             }
             else if (avoidLoss(b) != -1) //rule 2
             {
                 move = avoidLoss(b);
-            }
-            else if (placeBetween(b) != -1)
-            {
-                move = placeBetween(b);
-            }
+            } 
+            //else if (placeBetween(b) != -1) 
+            //{
+            //    move = placeBetween(b);
+            //}
 
-            //addpiece(move)
+            if (move != -1) {
+                //setPlayerAsOwnerOfNextToken(move); 
+            }
 
             Console.WriteLine("move: " + move);
             /*for (int r = height - 1; r >= 0; r--)
@@ -147,16 +149,15 @@ namespace CIS153_FinalProject
 
         private int playForWin(Board b)
         {
-            Board temp = b;
             //for check all rows for a win and set move if the move wins
             for (int col = 0; col < 7; col++)
             {
-                temp.setPlayerAsOwnerOfNextToken(col);
-                if (temp.getWinner() != null)
+                b.setPlayerAsOwnerOfNextToken(col);
+                if (b.getWinner() != null)
                 {
                     return col;
                 }
-                temp = b;
+                removeLastPiece();
             }
 
             return -1;
@@ -164,23 +165,22 @@ namespace CIS153_FinalProject
 
         private int avoidLoss(Board b)
         {
-            Board temp = b;
-            temp.swapTurns(); //swap to check other player
+            b.swapTurns(); //swap to Players turn
 
             //for check all rows for a win and set move if the move wins
             for (int col = 0; col < 7; col++)
             {
-                temp.setPlayerAsOwnerOfNextToken(col);
-                if (temp.getWinner() != null)
+                b.setPlayerAsOwnerOfNextToken(col);
+                if (b.getWinner() != null)
                 {
                     return col;
                 }
-                
-                //reset temp and swap
-                temp = b;
-                temp.swapTurns(); //swap 2
-            }
 
+                //reset temp and swap
+                b.removeLastPiece();
+                b.swapTurns(); //swap 2
+            }
+            
             return -1;
         }
 
@@ -706,7 +706,9 @@ namespace CIS153_FinalProject
             return null;
         }
 
-        
+        private void removeLastPiece() {
+            getLast().setCellOwner(null);
+        }
     }
 }
 

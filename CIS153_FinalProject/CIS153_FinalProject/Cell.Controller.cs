@@ -88,7 +88,11 @@ namespace CIS153_FinalProject
         public void setCellOwner(Player owner)
         {
             this.currentOwner = owner;
-            viewButton.BackColor = owner.getColor();
+            if (owner != null) {
+                viewButton.BackColor = owner.getColor();
+            } else {
+                viewButton.BackColor = Color.LightGray;
+            }
 
         }
 
