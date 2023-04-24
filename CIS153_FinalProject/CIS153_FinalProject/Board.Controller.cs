@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace CIS153_FinalProject
         private Player playerOne;
         private Player playerTwo;
 
+        //computer object
+        //private Computer computer;
+
         // Stores which players turn it is.
         private Player currentPlayer;
 
@@ -29,6 +33,8 @@ namespace CIS153_FinalProject
         //winner
         private Player winner = null;
 
+        //old board for ai moves, actually just itself
+        //private Board old = new Board();
 
         private Cell[,] cells = new Cell[6, 7];
 
@@ -93,6 +99,146 @@ namespace CIS153_FinalProject
             }
 
             return null;
+        }
+
+        public void doAI(Board b)
+        {
+
+            if (playForWin(b) != -1) //rule 1
+            {
+                // nothing
+            }
+            else if (avoidLoss(b) != -1) //rule 2
+            {
+                // nothing
+            } 
+            else
+            {
+                placeRandom(b);
+            }
+
+            currentPlayer = playerOne;
+
+            /*for (int r = height - 1; r >= 0; r--)
+            {
+                for (int c = 0; c < 7; c++)
+                {
+                    int numofLikeTokens = 0;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (board.getCells()[r, c].getOwner() != null)
+                        {
+                            if (board.getCells()[r, c].getOwner() != null && board.getCells()[r, c].getOwner() == board.getCells()[r - i, c].getOwner())
+                            {
+                                numofLikeTokens++;
+                            }
+                        }
+                        else
+                        {
+                            numofLikeTokens = 0;
+                        }
+                    }
+                    Console.WriteLine(numofLikeTokens);
+                }
+            }*/
+
+        }
+
+        private int playForWin(Board b)
+        {
+            for (int col = 0; col < 7; col++) {
+
+                if (b.setPlayerAsOwnerOfNextToken(col) != null) { //swap to player turn
+                    if (b.getWinner() != null) {
+                        return col;
+                    }
+                    removeLastPiece();
+                    swapTurns(); //swap back to ai turn
+                }
+            }
+            return -1; //end on AI turn
+        }
+
+        private int avoidLoss(Board b)
+        {
+            b.swapTurns(); //swap to Players turn
+
+            //for check all rows for a win and set move if the move wins
+            for (int col = 0; col < 7; col++)
+            {
+                if (b.setPlayerAsOwnerOfNextToken(col) != null) {
+                    if (b.getWinner() != null) {
+                        b.removeLastPiece();
+                        b.setPlayerAsOwnerOfNextToken(col);
+                        return col;
+                    }
+
+                    //reset temp and swap
+                    b.removeLastPiece();
+                    b.swapTurns(); //swap to players turn
+                }
+            }
+            b.swapTurns(); //swap to 
+            return -1;
+        }
+
+        private int placeBetween(Board b) //place between computer pieces in middle columns
+        {
+
+            Cell last = b.getLast();
+            Cell[,] tempCells = new Cell[6, 7];
+            int lR = last.getPosition()[0];
+            int lC = last.getPosition()[1];
+
+            tempCells = b.getCells();
+
+            //for check all rows for nighboring cells to make 3 in a row
+            for (int col = 1; col < 6; col++)
+            {
+
+                b.setPlayerAsOwnerOfNextToken(col);
+                last = b.getLast();
+
+                for (int i = 1; i > -2; i--)
+                {
+                    if (cells[lR + i, lC - 1].getOwner().getName() == "Computer" &&
+                        cells[lR + i, lC - 1].getOwner().getName() == "Computer")
+                    { //if cells at position have computer owner
+
+                        return col;
+
+                    }
+                }
+                b.removeLastPiece();
+
+                //temp = b;
+
+            }
+
+            return -1;
+        }
+
+        private int placeRandom(Board b)
+        {
+            Random r = new Random();
+            int change = r.Next(-2,2);
+            
+            if (2 + change >= 0 && 2 + change <= 6)
+            {
+                if (b.setPlayerAsOwnerOfNextToken(2 + change) != null)
+                {
+                    
+                    return 2 + change;
+                }
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                if (b.setPlayerAsOwnerOfNextToken(i) != null)
+                {
+                    return i;
+                }
+            }
+            return 1;
         }
 
         // Swap players turn.
@@ -204,250 +350,13 @@ namespace CIS153_FinalProject
 
             return sCells;
         }
-        /*
-        public Player hasWin_v3()
+
+        public Cell getLast()
         {
-            // Check Rows
-            for (int r = 0; i < cells.Length(0); r++)
-            {
-                // Number of like tokens in a row.
-                int tokenInArow = 0;
-
-                for (int c = 0; i < cells.Length(1); c++)
-                {
-                    // Check if current token is owned by the current player.
-                    if (cells[r, c].getOwner() == currentPlayer)
-                    {
-                        tokenInArow++;
-
-                        // If we find 4 Like tokens, return winner.
-                        if (tokenInArow == 4)
-                        {
-                            return currentPlayer;
-                        }
-                    }
-                    // If the tokens don't match, the row is broken.
-                    else
-                    {
-                        tokenInArow = 0;
-                    }
-                }
-            }
-
-            // Check Columns
-            for (int c = 0; c < cells.Length(1); c++)
-            {
-                // Number of like tokens in a row.
-                int tokenInArow = 0;
-
-                for (int r = 0; r < cells.Length(0); r++)
-                {
-                    // Check if current token is owned by current player.
-                    if (cells[r, c].getOwner() == currentPlayer)
-                    {
-                        tokenInArow++;
-
-                        // Number of tokens in a row is 4, return winner.
-                        if (tokenInArow == 4)
-                        {
-                            return currentPlayer;
-                        }
-                    }
-                    // If the tokens don't match, the row is broken.
-                    else
-                    {
-                        tokenInArow = 0;
-                    }
-                }
-            }
-
-            // Check Diagnals
-            for (int row = 0; row <= cells.GetLength(0) - 4; row++)
-            {
-                for (int col = 0; col <= cells.GetLength(1) - 4; col++)
-                {
-                    // Number of like tokens in a row.
-                    int tokenInArow = 0;
-
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (cells[row + i, col + i].getOwner() == currentPlayer)
-                        {
-                            tokenInArow++;
-
-                            // Number of tokens in a row is 4, return winner.
-                            if (tokenInArow == 4)
-                            {
-                                return currentPlayer;
-                            }
-                        }
-                        else
-                        {
-                            count = 0;
-                        }
-                    }
-                }
-            }
+            return this.last;
         }
 
-        */
 
-        /*
-        //returns winning player or null
-        public Player hasWin()
-        {
-            Console.WriteLine("Game is not a draw");
-            int lX = last.getPosition()[0];
-            int lY = last.getPosition()[1];
-            Player lastP = last.getOwner();
-
-            int tokenInArow = 0;
-            //
-            Cell[,] cellcheck = { { cells[lX, lY-1], cells[lX, lY - 2], cells[lX, lY - 3] }, //down 0 -
-                        { cells[lX, lY-1], cells[lX, lY - 2], cells[lX, lY - 3] }, //left           - 0
-                        { cells[lX, lY-1], cells[lX, lY - 2], cells[lX, lY - 3] }, //right          + 0
-                        { cells[lX, lY-1], cells[lX, lY - 2], cells[lX, lY - 3] }, //up left        - +
-                        { cells[lX, lY-1], cells[lX, lY - 2], cells[lX, lY - 3] }, //up right       + +
-                        { cells[lX, lY-1], cells[lX, lY - 2], cells[lX, lY - 3] }, //down left      - -
-                        { cells[lX, lY-1], cells[lX, lY - 2], cells[lX, lY - 3] } };//down right    + -
-            */
-        /*
-        for (int i = 0; i < 4; i++)
-        {
-            // Check if current token is owned by current player.
-            if (cells[x, y - i].getOwner() == currentPlayer)
-            {
-                tokenInArow++;
-
-                // Number of tokens in a row is 4, return winner.
-                if (tokenInArow == 4) { return currentPlayer; }
-            }
-            // If the tokens don't match, the row is broken.
-            else { tokenInArow = 0; }
-        }
-        //
-        //=========================================================================================================
-        for (int x = 0; x <= 6; x++) //loop x
-        {
-            for (int y = 0; y <= 5; y++) //loop y
-            {
-                Console.WriteLine("X: " + x + " Y: " + y);
-                if (y >= 3) //space for checks down
-                {
-                    //---------------------------------------------------check down
-                    for (int i = 0; i < 4; i++)
-                    {
-                        tokenInArow = 0;
-                        // Check if current token is owned by current player.
-                        if (cells[y - 1, x].getOwner() == currentPlayer)
-                        {
-                            tokenInArow++;
-
-                            // Number of tokens in a row is 4, return winner.
-                            if (tokenInArow == 4) { Console.WriteLine("WIN FOUND XY: " + x + y + " " + currentPlayer.getName()); 
-                                                    return currentPlayer; }
-                        }
-                        // If the tokens don't match, the row is broken.
-                        //else { tokenInArow = 0; }
-                    }
-
-                    if (x <= 3) //space for checks right
-                    {
-                        //-----------------------------------------------check +- diags
-                        for (int i = 0; i < 4; i++)
-                        {
-                            tokenInArow = 0;
-                            // Check if current token is owned by current player.
-                            if (cells[y - i, x + i].getOwner() == currentPlayer)
-                            {
-                                tokenInArow++;
-
-                                // Number of tokens in a row is 4, return winner.
-                                if (tokenInArow == 4) { Console.WriteLine("WIN FOUND XY: " + x + y + " " + currentPlayer.getName()); 
-                                                        return currentPlayer; }
-                            }
-                            // If the tokens don't match, the row is broken.
-                            //else { tokenInArow = 0; }
-                        }
-                    }
-                    if (x >= 3) //space for checks left
-                    {
-                        //-----------------------------------------------check -- diags
-                        for (int i = 0; i < 4; i++)
-                        {
-                            tokenInArow = 0;
-                            // Check if current token is owned by current player.
-                            if (cells[y - i, x - i].getOwner() == currentPlayer)
-                            {
-                                tokenInArow++;
-
-                                // Number of tokens in a row is 4, return winner.
-                                if (tokenInArow == 4) { Console.WriteLine("WIN FOUND XY: " + x + y + " " + currentPlayer.getName()); return currentPlayer; }
-                            }
-                            // If the tokens don't match, the row is broken.
-                            //else { tokenInArow = 0; }
-                        }
-                    }
-                }
-                if (x <= 3) //space for checks right
-                {
-                    //---------------------------------------------------check right
-                    for (int i = 0; i < 4; i++)
-                    {
-                        tokenInArow = 0;
-                        // Check if current token is owned by current player.
-                        if (cells[y, x + i].getOwner() == currentPlayer)
-                        {
-                            tokenInArow++;
-
-                            // Number of tokens in a row is 4, return winner.
-                            if (tokenInArow == 4) { Console.WriteLine("WIN FOUND XY: " + x + y + " " + currentPlayer.getName()); return currentPlayer; }
-                        }
-                        // If the tokens don't match, the row is broken.
-                        //else { tokenInArow = 0; }
-                    }
-                }
-
-            }
-        }
-        //=========================================================================================================
-        //
-        // Do this 3 times.
-        for (int i = 0; i < 3; i++)
-        {
-            //if last y 3+
-            //check down
-            //copy sides for diag
-
-            //if last x 3-
-            //check right
-            //if last y 4-
-            //up right diag
-
-            //if last x 4+
-            //check left
-            //if last y 4-
-
-            // Check if in index.
-            if (lX - i >= 0 && lX - i <= 6)
-            {
-                // Check if they don't match.
-                if (cells[lX - i, ].getOwner() != last.getOwner())
-                {
-                    // Return if they don't
-                    return null;
-                }
-            }
-
-        }
-    */
-        // Check Down, break if we do not find 3 or more like tokens.
-        // Check Diagonals, break if we do not find 3 or more like tokens
-        // Check Sides, break if we do not find 3 or more like tokens
-
-        // Return Player on win.
-        //
-        // Returns true if the game is a draw
         public bool checkDraw()
         {
             int row = 0;
@@ -574,5 +483,504 @@ namespace CIS153_FinalProject
             return null;
         }
 
+        private void removeLastPiece()
+        {
+            getLast().setCellOwner(null);
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//no u
