@@ -171,10 +171,19 @@ namespace CIS153_FinalProject
 
         private void btn_row_0_Click(object sender, EventArgs e)
         {
-            board.setPlayerAsOwnerOfNextToken(0);
-            endCheck();
-            setPlayersTurn(this.board.getCurrentPlayer());
-            board.getSimpleCells();
+            if (board.setPlayerAsOwnerOfNextToken(0) != null)
+            {
+                endCheck();
+                setPlayersTurn(this.board.getCurrentPlayer());
+                if (board.getGamemode() == "single")
+                {
+                    board.doAI(board);
+                    endCheck();
+                    setPlayersTurn(this.board.getCurrentPlayer());
+                }
+
+            }
+            
         }
 
         private void btn_row_1_Click(object sender, EventArgs e)
