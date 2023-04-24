@@ -9,4 +9,8 @@ Ben Macleod
 Connect 4 was an interesting project to make. When we first starting prepping & planning for this project , we did'nt know how we wanted to approach the creations of the buttons, how we are going to move between page, and more. Once we established how to render our buttons for the grid it became pretty easy. The last thing that really gave us a tough time was the AI for the singleplayer. We where able to get it after a few times trying.
 
 ## How-To-Play
-The game is very simple to play, all you have to do is first select the mode you want to play in. After that if you picked two-player it will prompt you for your name an d color you want to do for the token. Then it will take you to the game and allow you to player. Once a winner or draw is found it will take you to the win screen letting you know who one and show you some options. There is also a stats page where you can view your personalized stats.
+To begin playing the game, the user must first select their desired game mode. Upon selecting the two-player mode, the user will be prompted to enter their name and choose a color for their token. Once this information is entered, the game board will be displayed and the user can begin playing.
+
+As the game progresses, the software will keep track of the game state and determine when a winner or draw has been reached. When the game concludes, the user will be directed to a win screen, which will display the winner's name and provide options for further action.
+
+In addition to the gameplay features, the software also includes a statistics page that allows users to view their personal game statistics, providing an added layer of engagement for users who wish to track their progress over time.
