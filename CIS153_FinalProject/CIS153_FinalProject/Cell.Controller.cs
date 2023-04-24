@@ -9,12 +9,6 @@ using System.Timers;
 
 namespace CIS153_FinalProject
 {
-    enum cellState
-    {
-        p1,
-        p2,
-        empty
-    }
 
     class Cell
     {
@@ -26,8 +20,6 @@ namespace CIS153_FinalProject
         // Store a player, if selected.
         private Player currentOwner = null;
 
-        //abbreviated cellState
-        private cellState state = cellState.empty;
 
         // The button we dynamically generate for this cell.
         private Button viewButton;
@@ -67,14 +59,11 @@ namespace CIS153_FinalProject
 
         }
 
-       /* private void Click(object sender, EventArgs e)
-        {
+        /* private void Click(object sender, EventArgs e)
+         {
 
-        }*/
+         }*/
 
-        //getters and setters
-
-        public cellState getState() { return state; }
 
         // This function allows us to obtain the cell position, returns
         // an int[] index 0 = X; 1 = Y
@@ -88,9 +77,12 @@ namespace CIS153_FinalProject
         public void setCellOwner(Player owner)
         {
             this.currentOwner = owner;
-            if (owner != null) {
+            if (owner != null)
+            {
                 viewButton.BackColor = owner.getColor();
-            } else {
+            }
+            else
+            {
                 viewButton.BackColor = Color.LightGray;
             }
 
@@ -107,7 +99,7 @@ namespace CIS153_FinalProject
 
         public void startHover(Player player)
         {
-            
+
             Color c = player.getColor();
 
             // Alpha

@@ -111,7 +111,7 @@ namespace CIS153_FinalProject
             else if (avoidLoss(b) != -1) //rule 2
             {
                 // nothing
-            } 
+            }
             else
             {
                 placeRandom(b);
@@ -119,37 +119,18 @@ namespace CIS153_FinalProject
 
             currentPlayer = playerOne;
 
-            /*for (int r = height - 1; r >= 0; r--)
-            {
-                for (int c = 0; c < 7; c++)
-                {
-                    int numofLikeTokens = 0;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (board.getCells()[r, c].getOwner() != null)
-                        {
-                            if (board.getCells()[r, c].getOwner() != null && board.getCells()[r, c].getOwner() == board.getCells()[r - i, c].getOwner())
-                            {
-                                numofLikeTokens++;
-                            }
-                        }
-                        else
-                        {
-                            numofLikeTokens = 0;
-                        }
-                    }
-                    Console.WriteLine(numofLikeTokens);
-                }
-            }*/
-
         }
 
+        // Rule #1 Play for Win.
         private int playForWin(Board b)
         {
-            for (int col = 0; col < 7; col++) {
+            for (int col = 0; col < 7; col++)
+            {
 
-                if (b.setPlayerAsOwnerOfNextToken(col) != null) { //swap to player turn
-                    if (b.getWinner() != null) {
+                if (b.setPlayerAsOwnerOfNextToken(col) != null)
+                { //swap to player turn
+                    if (b.getWinner() != null)
+                    {
                         return col;
                     }
                     removeLastPiece();
@@ -159,6 +140,7 @@ namespace CIS153_FinalProject
             return -1; //end on AI turn
         }
 
+        // Rule #2 Avoid a loss.
         private int avoidLoss(Board b)
         {
             b.swapTurns(); //swap to Players turn
@@ -166,8 +148,10 @@ namespace CIS153_FinalProject
             //for check all rows for a win and set move if the move wins
             for (int col = 0; col < 7; col++)
             {
-                if (b.setPlayerAsOwnerOfNextToken(col) != null) {
-                    if (b.getWinner() != null) {
+                if (b.setPlayerAsOwnerOfNextToken(col) != null)
+                {
+                    if (b.getWinner() != null)
+                    {
                         b.removeLastPiece();
                         b.setPlayerAsOwnerOfNextToken(col);
                         return col;
@@ -182,6 +166,7 @@ namespace CIS153_FinalProject
             return -1;
         }
 
+        // Rule #3 Place Between.
         private int placeBetween(Board b) //place between computer pieces in middle columns
         {
 
@@ -218,16 +203,17 @@ namespace CIS153_FinalProject
             return -1;
         }
 
+        // Rule #4 Pick Random Spot.
         private int placeRandom(Board b)
         {
             Random r = new Random();
-            int change = r.Next(-2,2);
-            
+            int change = r.Next(-2, 2);
+
             if (2 + change >= 0 && 2 + change <= 6)
             {
                 if (b.setPlayerAsOwnerOfNextToken(2 + change) != null)
                 {
-                    
+
                     return 2 + change;
                 }
             }
@@ -254,7 +240,7 @@ namespace CIS153_FinalProject
             }
         }
 
-        //start hover
+        // Start hovering effect.
         public void startHover(int col)
         {
             for (int row = 5; row >= 0; row--)
@@ -267,7 +253,7 @@ namespace CIS153_FinalProject
             }
         }
 
-        //stop hover
+        // stop the hovering effect.
         public void stopHover(int col)
         {
             for (int row = 5; row >= 0; row--)
@@ -280,83 +266,12 @@ namespace CIS153_FinalProject
             }
         }
 
-        /* Getters  Setters */
-
-        public void setGamemode(String mode)
-        {
-            this.gamemode = mode;
-        }
-        public string getGamemode()
-        {
-            return gamemode;
-        }
-        public Player getWinner()
-        {
-            return winner;
-        }
-        // Set the players for the board.
-        public void setPlayerOne(Player value)
-        {
-            this.playerOne = value;
-            currentPlayer = playerOne;
-        }
-
-        public void setPlayerTwo(Player value)
-        {
-            this.playerTwo = value;
-        }
-
-        public Player getPlayerOne()
-        {
-            return this.playerOne;
-        }
-
-        public Player getPlayerTwo()
-        {
-            return this.playerTwo;
-        }
-        public Player getCurrentPlayer()
-        {
-            return this.currentPlayer;
-        }
-
-        public Cell[,] getCells()
-        {
-            return this.cells;
-        }
-
-        public int[,] getSimpleCells() //1 is player 1, 2 is player 2, 0 is empty
-        {
-            int[,] sCells = new int[6, 7];
-
-            for (int x = 0; x < 7; x++)
-            {
-                for (int y = 0; y < 6; y++)
-                {
-                    if (cells[y, x].getOwner() == playerOne)
-                    {
-                        sCells[y, x] = 1;
-                    }
-                    else if (cells[y, x].getOwner() == playerTwo)
-                    {
-                        sCells[y, x] = 2;
-                    }
-                    else
-                    {
-                        sCells[y, x] = 0;
-                    }
-                }
-            }
-
-            return sCells;
-        }
-
         public Cell getLast()
         {
             return this.last;
         }
 
-
+        // Check if there is a draw on the board.
         public bool checkDraw()
         {
             int row = 0;
@@ -375,6 +290,7 @@ namespace CIS153_FinalProject
             return false;
         }
 
+        // Check for a win anywhere on the board.
         public Player hasWin()
         {
             int baseRow = last.getPosition()[0];
@@ -483,504 +399,57 @@ namespace CIS153_FinalProject
             return null;
         }
 
+        // Remove last peice plasted.
         private void removeLastPiece()
         {
             getLast().setCellOwner(null);
         }
+
+        /* Getters & Setters */
+        public void setGamemode(String mode)
+        {
+            this.gamemode = mode;
+        }
+        public string getGamemode()
+        {
+            return gamemode;
+        }
+        public Player getWinner()
+        {
+            return winner;
+        }
+        // Set the players for the board.
+        public void setPlayerOne(Player value)
+        {
+            this.playerOne = value;
+            currentPlayer = playerOne;
+        }
+
+        public void setPlayerTwo(Player value)
+        {
+            this.playerTwo = value;
+        }
+
+        public Player getPlayerOne()
+        {
+            return this.playerOne;
+        }
+
+        public Player getPlayerTwo()
+        {
+            return this.playerTwo;
+        }
+        public Player getCurrentPlayer()
+        {
+            return this.currentPlayer;
+        }
+
+        public Cell[,] getCells()
+        {
+            return this.cells;
+        }
     }
+
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//no u

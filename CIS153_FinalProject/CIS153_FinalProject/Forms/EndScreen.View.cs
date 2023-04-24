@@ -43,36 +43,8 @@ namespace CIS153_FinalProject.Forms
                     statsController.writeTextFile(winner);
                     txt_display_winner.Text = "The game ended in a draw, try again?";
                     break;
-                default:
-                    txt_display_winner.Text = "Unknown Game Result.";
-                    break;
-            }
-
-            if (winnerName == "")
-            {
-                txt_display_winner.Text = "The game ended in a draw, try again?!";
-            }
-        }
-
-        public EndScreen(Window controller, int winner, string winnerName)
-        { // Pass an int for whoever has won the game, 0 = p1 win, 1 = p2 win, 2 = draw, 3 = NO WINNER TO BE ASSIGNED AKA 2 PLAYER GAME
-            InitializeComponent();
-
-            windowController = controller;
-
-            switch (winner)
-            {
-                case 0:
-                    statsController.writeTextFile(winner);
-                    txt_display_winner.Text = "Awesome! " + winnerName + " has won the game!";
-                    break;
-                case 1:
-                    statsController.writeTextFile(winner);
-                    txt_display_winner.Text = "Booooo! The Computer won the game.";
-                    break;
-                case 2:
-                    statsController.writeTextFile(winner);
-                    txt_display_winner.Text = "The game ended in a draw, try again?";
+                case 3:
+                    txt_display_winner.Text = "Wow! " + winnerName + " just won the game! Congrats!";
                     break;
                 default:
                     txt_display_winner.Text = "Unknown Game Result.";

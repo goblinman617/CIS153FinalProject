@@ -50,11 +50,11 @@
     <Compile Include="Cell.Controller.cs" />
     <Compile Include="Comp.Controller.cs" />
     <Compile Include="Computer.Controller.cs" />
-    <Compile Include="Forms\EndScreen.cs">
+    <Compile Include="Forms\EndScreen.View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EndScreen.Designer.cs">
-      <DependentUpon>EndScreen.cs</DependentUpon>
+    <Compile Include="Forms\EndScreen.View.Designer.cs">
+      <DependentUpon>EndScreen.View.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainMenu.View.cs">
       <SubType>Form</SubType>
@@ -83,11 +83,11 @@
     <Compile Include="Forms\Stats.View.Designer.cs">
       <DependentUpon>Stats.View.cs</DependentUpon>
     </Compile>
-    <Compile Include="MatchHistory.cs" />
-    <Compile Include="StatsController.cs" />
+    <Compile Include="MatchHistory.Controller.cs" />
+    <Compile Include="Stats.Controller.cs" />
     <Compile Include="Window.Controller.cs" />
-    <EmbeddedResource Include="Forms\EndScreen.resx">
-      <DependentUpon>EndScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EndScreen.View.resx">
+      <DependentUpon>EndScreen.View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GameBoard.View.resx">
       <DependentUpon>GameBoard.View.cs</DependentUpon>

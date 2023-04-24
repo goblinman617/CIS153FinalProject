@@ -129,40 +129,6 @@ namespace CIS153_FinalProject
             windowController.goBack();
         }
 
-        // Find the next open spot in a column.
-        /*private void getNextSpotInColumn(int column, Player p)
-        {
-            for (int r = 6; r > 0; r--)
-            {
-                if (board.getCell(column, r-1) != cellState.empty)
-                {
-                    //board[r - 1, column] = p;
-                    return;
-                }
-
-            }
-        }*/
-
-        private void columnOneSelect_Click(object sender, EventArgs e) // Does this exist?
-        {
-            //board.addPiece(0);
-            //getNextSpotInColumn(0, this.currentPlayersTurn);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void playerOneLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_row_0_Click(object sender, EventArgs e)
         {
@@ -178,15 +144,17 @@ namespace CIS153_FinalProject
                 }
 
             }
-            
+
         }
 
         private void btn_row_1_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(1) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(1) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
+                if (board.getGamemode() == "single")
+                {
                     board.doAI(board);
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
@@ -198,10 +166,12 @@ namespace CIS153_FinalProject
 
         private void btn_row_2_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(2) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(2) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
+                if (board.getGamemode() == "single")
+                {
                     board.doAI(board);
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
@@ -213,10 +183,12 @@ namespace CIS153_FinalProject
 
         private void btn_row_3_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(3) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(3) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
+                if (board.getGamemode() == "single")
+                {
                     board.doAI(board);
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
@@ -228,10 +200,12 @@ namespace CIS153_FinalProject
 
         private void btn_row_4_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(4) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(4) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
+                if (board.getGamemode() == "single")
+                {
                     board.doAI(board);
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
@@ -243,10 +217,12 @@ namespace CIS153_FinalProject
 
         private void btn_row_5_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(5) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(5) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
+                if (board.getGamemode() == "single")
+                {
                     board.doAI(board);
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
@@ -258,10 +234,12 @@ namespace CIS153_FinalProject
 
         private void btn_row_6_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(6) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(6) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
+                if (board.getGamemode() == "single")
+                {
                     board.doAI(board);
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
