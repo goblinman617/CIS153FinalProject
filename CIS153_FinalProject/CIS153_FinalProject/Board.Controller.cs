@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,13 +111,13 @@ namespace CIS153_FinalProject
             else if (avoidLoss(b) != -1) //rule 2
             {
                 // nothing
-            }
+            } 
             else
             {
                 placeRandom(b);
             }
 
-
+            currentPlayer = playerOne;
 
             /*for (int r = height - 1; r >= 0; r--)
             {
@@ -146,12 +147,14 @@ namespace CIS153_FinalProject
         private int playForWin(Board b)
         {
             for (int col = 0; col < 7; col++) {
-                b.setPlayerAsOwnerOfNextToken(col); //swap to player turn
-                if (b.getWinner() != null) {
-                    return col;
+
+                if (b.setPlayerAsOwnerOfNextToken(col) != null) { //swap to player turn
+                    if (b.getWinner() != null) {
+                        return col;
+                    }
+                    removeLastPiece();
+                    swapTurns(); //swap back to ai turn
                 }
-                removeLastPiece();
-                swapTurns(); //swap back to ai turn
             }
             return -1; //end on AI turn
         }
@@ -163,17 +166,17 @@ namespace CIS153_FinalProject
             //for check all rows for a win and set move if the move wins
             for (int col = 0; col < 7; col++)
             {
-                b.setPlayerAsOwnerOfNextToken(col); //swapped to CPU turn
-                if (b.getWinner() != null)
-                {
-                    b.removeLastPiece();
-                    b.setPlayerAsOwnerOfNextToken(col);
-                    return col;
-                }
+                if (b.setPlayerAsOwnerOfNextToken(col) != null) {
+                    if (b.getWinner() != null) {
+                        b.removeLastPiece();
+                        b.setPlayerAsOwnerOfNextToken(col);
+                        return col;
+                    }
 
-                //reset temp and swap
-                b.removeLastPiece();
-                b.swapTurns(); //swap to players turn
+                    //reset temp and swap
+                    b.removeLastPiece();
+                    b.swapTurns(); //swap to players turn
+                }
             }
             b.swapTurns(); //swap to 
             return -1;
@@ -217,26 +220,29 @@ namespace CIS153_FinalProject
 
         private int placeRandom(Board b)
         {
-            int lastRow = last.getPosition()[0];
             int lastCol = last.getPosition()[1];
             Random r = new Random();
-            int change = r.Next(-1, 1);
-
+            int change = r.Next(-2,2);
+            
             if (lastCol + change >= 0 && lastCol + change <= 6)
             {
                 if (b.setPlayerAsOwnerOfNextToken(lastCol + change) != null)
                 {
+                    Console.WriteLine(lastCol);
+                    Console.WriteLine(change);
+                    
                     return lastCol + change;
                 }
             }
             for (int i = 0; i < 7; i++)
             {
+                Console.WriteLine(i);
                 if (b.setPlayerAsOwnerOfNextToken(i) != null)
                 {
                     return i;
                 }
             }
-            return -1;
+            return 1;
         }
 
         // Swap players turn.
