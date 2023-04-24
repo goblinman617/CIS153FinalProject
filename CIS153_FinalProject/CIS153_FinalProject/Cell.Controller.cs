@@ -98,6 +98,10 @@ namespace CIS153_FinalProject
 
         public Player getOwner()
         {
+            if (currentOwner == null)
+            {
+                return null;
+            }
             return currentOwner;
         }
 

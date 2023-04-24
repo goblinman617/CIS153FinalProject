@@ -179,104 +179,110 @@ namespace CIS153_FinalProject
                 setPlayersTurn(this.board.getCurrentPlayer());
                 if (board.getGamemode() == "single")
                 {
-                    board.doAI(board);
+                    board.setPlayerAsOwnerOfNextToken(board.doAI(board));
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
                 }
-
             }
             
         }
 
         private void btn_row_1_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(1) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(0) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
-                    board.doAI(board);
+                if (board.getGamemode() == "single")
+                {
+                    board.setPlayerAsOwnerOfNextToken(board.doAI(board));
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
                 }
-
             }
-
         }
+
+
 
         private void btn_row_2_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(2) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(0) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
-                    board.doAI(board);
+                if (board.getGamemode() == "single")
+                {
+                    board.setPlayerAsOwnerOfNextToken(board.doAI(board));
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
                 }
-
             }
-
         }
+
 
         private void btn_row_3_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(3) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(0) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
-                    board.doAI(board);
+                if (board.getGamemode() == "single")
+                {
+                    board.setPlayerAsOwnerOfNextToken(board.doAI(board));
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
                 }
-
             }
-
         }
+
 
         private void btn_row_4_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(4) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(0) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
-                    board.doAI(board);
+                if (board.getGamemode() == "single")
+                {
+                    board.setPlayerAsOwnerOfNextToken(board.doAI(board));
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
                 }
-
             }
-
         }
+
 
         private void btn_row_5_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(5) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(0) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
-                    board.doAI(board);
+                if (board.getGamemode() == "single")
+                {
+                    board.setPlayerAsOwnerOfNextToken(board.doAI(board));
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
                 }
-
             }
-
         }
+
 
         private void btn_row_6_Click(object sender, EventArgs e)
         {
-            if (board.setPlayerAsOwnerOfNextToken(6) != null) {
+            if (board.setPlayerAsOwnerOfNextToken(0) != null)
+            {
                 endCheck();
                 setPlayersTurn(this.board.getCurrentPlayer());
-                if (board.getGamemode() == "single") {
-                    board.doAI(board);
+                if (board.getGamemode() == "single")
+                {
+                    board.setPlayerAsOwnerOfNextToken(board.doAI(board));
                     endCheck();
                     setPlayersTurn(this.board.getCurrentPlayer());
                 }
-
             }
-
         }
+
 
         private void endCheck()
         {
